@@ -8,6 +8,10 @@
 5. Phong cách lấy theo template.* của từng mẻ (người dùng bỏ vào Video/template). Kiểu thường gặp: cảnh ngắn 1–3 nhịp
    (~0,7–2 giây), nhạc xuyên suốt, chữ nhỏ trắng kèm emoji ở giữa/dưới, tiêu đề series ở trên, sticker ở cảnh cảm xúc. Trước khi lên kế hoạch, trích vài khung hình
    của batches/<mẻ>/template.* để đối chiếu. Ảnh bìa người dùng tự làm trong TikTok lúc đăng, agent không làm.
+6. Sticker, combo, kiểu chữ: ƯU TIÊN DÙNG LẠI loại có sẵn (ảnh catalog_*.png gồm catalog_tutao.png, tools/presets.json,
+   tools/thu_vien_chu.md). Chỉ khi KHÔNG có loại hợp cảnh mới tạo mới, và tạo trong thư viện tự tạo
+   tools/remotion/src/Custom.tsx rồi lưu lại để video sau dùng tiếp (xem mục "Tạo sticker / kiểu chữ mới").
+   Không sửa các bộ có sẵn (Stickers.tsx, Doodles*.tsx, Pack.tsx, Label.tsx...) khi người dùng chưa yêu cầu.
 
 ## Vị trí thư mục
 - Trên máy: <ổ>:\ChuyệnNhàChàBông (tên thư mục phải đúng như vậy). Trong máy ảo, mỗi lệnh bắt đầu bằng:
@@ -92,7 +96,7 @@
   catalog_netve.png (nét trắng mảnh vẽ tay kiểu "Yummy!" + chữ ký script),
   catalog_netve2.png + catalog_netve3.png + catalog_combo2.png (56 nét trắng + 11 combo mở rộng — ưu tiên kiểu nét trắng).
 - tools/thu_vien_chu.md: câu chữ mẫu + combo + sticker + kiểu chữ hợp cho từng chủ đề (ăn uống, đi chơi, lễ tết...).
-- Sửa src/*.tsx, tools/presets.json hoặc style.json xong thì chạy `timeout 170 bash tools/make_catalog.sh` để cập nhật ảnh mẫu.
+- Sửa Custom.tsx, tools/presets.json (hoặc style.json khi người dùng yêu cầu) xong thì chạy `timeout 170 bash tools/make_catalog.sh` để cập nhật ảnh mẫu.
 
 ### Chữ mốc giờ (labels)
 - "anim": type (đánh máy, mặc định) | wave (từng chữ nảy lên) | pop | slide | fade
@@ -138,7 +142,7 @@
   troi_mua, sinh_nhat, tet, trung_thu, noel, gioi_qua, quay_len, be_ngu, tam_biet, follow; bộ nét trắng: yummy_netve,
   giat_minh, chong_mat, ngai_ngung, y_tuong, byee_netve, be_khoc_netve, an_ngon_netve, vo_beo_netve,
   tra_sua_netve, di_choi_netve, check_in_netve, be_ngu_netve, yeu_qua_netve, em_be_netve, that_vong_netve, khen_netve, hoi_ba_netve. Combo rộng ~0,45 khung: đặt x
-  khoảng 0.3–0.7; thu nhỏ bằng "scale": 0.8 nếu chật. Thêm combo mới: viết vào presets.json rồi chạy make_catalog.sh.
+  khoảng 0.3–0.7; thu nhỏ bằng "scale": 0.8 nếu chật. Thêm combo mới (ghép từ sticker có sẵn/tự tạo) khi chưa có combo hợp: viết vào presets.json rồi chạy make_catalog.sh.
 - PHONG CÁCH NÉT TRẮNG (giống video tham khảo của người dùng): rải 3–4 nét trắng QUANH bé thay vì gom 1 chỗ — splash cạnh đầu,
   burst_lines góc trên, thú *_peek cạnh tay/món ăn, chữ script "Yummy!" góc dưới (anim type). Không trộn với sticker màu
   trong cùng cảnh. text style "script" có nét gạch đuôi tự vẽ; size 56–70.
@@ -148,6 +152,24 @@
 ### Hiệu ứng toàn cảnh (segments[].effects, dùng ít, 0–1 mỗi cảnh)
 hearts (tim bay lên) | stars (sao bay lên) | sparkles (lấp lánh) | confetti (giấy màu rơi) | lightleak (vệt sáng ấm) |
 prism (vệt cầu vồng) | frame (khung trắng nháy quanh màn hình, như video mẫu).
+
+## Tạo sticker / kiểu chữ mới (thư viện tự tạo)
+Khi nào: lên kế hoạch (Bước 1) mà xem hết catalog_*.png + thu_vien_chu.md vẫn không có sticker/kiểu chữ hợp cảnh.
+1. Ghi trong ke-hoach.md, cột sticker: "(tạo mới: <tên> — <mô tả ngắn>)". Người dùng duyệt kế hoạch là đồng ý tạo.
+2. Viết vào tools/remotion/src/Custom.tsx (KHÔNG sửa file khác):
+   - Sticker hình -> CUSTOM["<tên>"] = ({size, c, c2, local, prog, text}) => <svg ...>. Dùng: {"type": "<tên>", ...}.
+     Có thể dùng hàm vẽ chung trong _helpers (ln, drawn, boil, Svg, drop, HEART, STAR...) như Doodles.tsx.
+     Có chuyển động thì dựa vào local (khung hình từ lúc hiện), giữ nhẹ nhàng; nền trong suốt.
+   - Kiểu chữ sticker chữ -> CUSTOM_TEXT["<tên>"] = (fs, c, c2) => CSS. Dùng: {"type": "text", "style": "<tên>", "text": "..."}.
+   - Kiểu chữ dòng hoạt động mốc giờ -> CUSTOM_LABEL["<tên>"] = {color, accent, round, stroke, strokeWidth, textShadow, box}.
+     Dùng: labels[].style = "<tên>".
+   Tên: chữ thường không dấu, nối "_", không trùng tên có sẵn. Thêm 1 dòng chú thích: dùng khi nào + ngày tạo.
+   Chữ tiếng Việt: chỉ dùng các font đã nạp ('Round, Emo' | 'Hand, Emo' | 'Script, Emo'), đều có dấu.
+3. Chạy `timeout 170 bash tools/make_catalog.sh` (chạy lại nếu bị ngắt) -> xem tools/remotion/catalog_tutao.png:
+   hình phải rõ, không lỗi, đúng ý. Lỗi bundle (TypeScript/JSX) thì sửa ngay trong Custom.tsx.
+4. Thêm 1 dòng vào tools/thu_vien_chu.md mục "Tự tạo" (tên, loại, dùng khi nào) để lần sau tìm được.
+5. Dùng trong plan.json như sticker/kiểu chữ có sẵn; gửi ảnh --preview để người dùng duyệt như bình thường.
+Sửa/bỏ một mục tự tạo đã dùng ở video cũ: thêm bản mới tên khác (vd "<tên>_2") thay vì sửa đè, để video cũ dựng lại vẫn y nguyên.
 
 ## Mẫu plan.json
 {

@@ -5,6 +5,7 @@ import {Star, Sparkle} from './Shapes';
 import {PACK} from './Pack';
 import {DOODLES} from './Doodles';
 import {DOODLES2} from './Doodles2';
+import {CUSTOM, CUSTOM_TEXT} from './Custom';
 
 // Sticker đặt theo toạ độ (x, y = 0..1 là TÂM hình). Tự vẽ bằng SVG, không dùng hình có bản quyền.
 // Xem bảng mẫu: tools/remotion/catalog.png. Danh sách loại (type):
@@ -314,6 +315,7 @@ export const Doodle: React.FC<{s: Sticker; t: Theme; local: number; prog: number
           </svg>
         </div>);
     default: { // gói chủ đề (Pack.tsx), còn lại là text: style hand | outline | tag | marker | neon | comic | sticker | gradient | retro
+      if (CUSTOM[s.type]) return CUSTOM[s.type]({size, c, c2: s.color2, local, prog, text: s.text}); // thư viện tự tạo (Custom.tsx)
       if (PACK[s.type]) return PACK[s.type]({size, c: s.color, c2: s.color2, local, text: s.text});
       if (DOODLES[s.type]) return DOODLES[s.type]({size, c, local, prog});
       if (DOODLES2[s.type]) return DOODLES2[s.type]({size, c, local, prog, text: s.text});
@@ -338,7 +340,7 @@ export const Doodle: React.FC<{s: Sticker; t: Theme; local: number; prog: number
       const fs = s.size ?? t.handSize;
       const base: React.CSSProperties = {whiteSpace: 'pre', lineHeight: 1.1};
       const st = s.style ?? 'hand';
-      const css: React.CSSProperties =
+      const css: React.CSSProperties = CUSTOM_TEXT[st] ? {...base, ...CUSTOM_TEXT[st](fs, s.color, s.color2)} : // kiểu chữ tự tạo
         st === 'outline' ? {...base, fontFamily: 'Round, Emo', fontWeight: 800, fontSize: fs, color: c,
           WebkitTextStroke: `${Math.max(4, fs * 0.16)}px ${s.color2 ?? '#F06292'}`, paintOrder: 'stroke fill',
           filter: 'drop-shadow(0 3px 3px rgba(0,0,0,0.3))'}

@@ -1,6 +1,7 @@
 import React from 'react';
 import {AbsoluteFill, interpolate, spring, useCurrentFrame, useVideoConfig} from 'remotion';
 import {mergeTheme, Theme, useFonts} from './theme';
+import {CUSTOM_LABEL} from './Custom';
 
 // Mốc giờ: giờ to đậm + dòng hoạt động bên dưới + dòng emoji nhỏ.
 // timeIn/timeOut/textIn/textOut = false khi chữ đó kéo dài sang cảnh trước/sau -> không chạy lại hiệu ứng giữa các cảnh.
@@ -60,15 +61,16 @@ export const Label: React.FC<LabelProps> = (p) => {
   const sp = entering ? spring({frame: local, fps, config: {damping: 11, stiffness: 170}}) : 1;
   const blockTf = !entering ? '' : anim === 'pop' ? `scale(${sp})` : anim === 'slide' ? `translateX(${(1 - sp) * -80}px)` : '';
 
-  const dark = style === 'tag';
-  const round = ['outline', 'tag', 'sticker', 'comic', 'neon'].includes(style);
-  const baseColor = dark ? t.tagColor : style === 'sticker' ? '#EC407A' : style === 'comic' ? '#FFE066' : t.labelColor;
-  const accent = dark ? '#D84315' : style === 'sticker' ? '#7E57C2' : style === 'comic' ? '#FF5252' : t.accent;
-  const outline = style === 'outline' || style === 'comic';
-  const strokeCol = style === 'comic' ? '#212121' : t.labelStroke;
+  const cs = CUSTOM_LABEL[style]; // kiểu chữ tự tạo (Custom.tsx)
+  const dark = !cs && style === 'tag';
+  const round = cs ? !!cs.round : ['outline', 'tag', 'sticker', 'comic', 'neon'].includes(style);
+  const baseColor = cs ? (cs.color ?? t.labelColor) : dark ? t.tagColor : style === 'sticker' ? '#EC407A' : style === 'comic' ? '#FFE066' : t.labelColor;
+  const accent = cs ? (cs.accent ?? t.accent) : dark ? '#D84315' : style === 'sticker' ? '#7E57C2' : style === 'comic' ? '#FF5252' : t.accent;
+  const outline = cs ? !!cs.stroke : style === 'outline' || style === 'comic';
+  const strokeCol = cs?.stroke ?? (style === 'comic' ? '#212121' : t.labelStroke);
   const font = round ? 'LblR, Emo' : 'LblS, Emo';
   const weight = round ? 700 : 500;
-  const textShadow = style === 'shadow' ? `0 2px 6px ${t.labelShadow}, 0 0 2px ${t.labelShadow}`
+  const textShadow = cs ? (cs.textShadow ?? `0 2px 6px ${t.labelShadow}, 0 0 2px ${t.labelShadow}`) : style === 'shadow' ? `0 2px 6px ${t.labelShadow}, 0 0 2px ${t.labelShadow}`
     : style === 'neon' ? `0 0 6px ${t.neon}, 0 0 14px ${t.neon}, 0 0 26px ${t.neon}`
     : style === 'comic' ? '3px 4px 0 #212121' : 'none';
 
@@ -92,7 +94,7 @@ export const Label: React.FC<LabelProps> = (p) => {
       <span key={c.i} style={{display: 'inline-block', opacity: o, transform: tf, color: c.hi ? accent : baseColor,
         fontWeight: c.hi ? Math.min(900, weight + 200) : weight}}>{c.ch}</span>);
   };
-  const box: React.CSSProperties =
+  const box: React.CSSProperties = cs ? (cs.box ?? {}) :
     style === 'pill' ? {display: 'inline-block', background: 'rgba(0,0,0,0.42)', borderRadius: 999, padding: '6px 22px'}
     : dark ? {display: 'inline-block', background: t.tagBg, borderRadius: 10, padding: '4px 18px', transform: 'rotate(-2deg)',
       boxShadow: '0 3px 8px rgba(0,0,0,0.25)'}
@@ -108,7 +110,7 @@ export const Label: React.FC<LabelProps> = (p) => {
           lineHeight: 1.05, color: t.timeColor, textShadow: `3px 4px 0 ${t.timeShadow}, 0 0 10px rgba(0,0,0,0.35)`}}>{p.time}</div> : null}
         {n ? <div style={{opacity: textOp, marginTop: 6, transform: blockTf}}>
           <span style={{...box, fontFamily: font, fontSize: t.labelSize, lineHeight: 1.25, textShadow,
-            WebkitTextStroke: outline ? `${Math.round(t.labelSize * (style === 'comic' ? 0.14 : 0.18))}px ${strokeCol}` : undefined,
+            WebkitTextStroke: outline ? `${Math.round(t.labelSize * (cs?.strokeWidth ?? (style === 'comic' ? 0.14 : 0.18)))}px ${strokeCol}` : undefined,
             paintOrder: outline ? 'stroke fill' : undefined}}>
             {words.map((w, k) => <span key={k} style={{display: w.length === 1 && (w[0].ch === ' ' || w[0].ch === '\n') ? 'inline' : 'inline-block'}}>
               {w.map(renderChar)}</span>)}

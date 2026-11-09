@@ -24,6 +24,7 @@ Skill này chỉ là lối vào; nguồn sự thật là `AGENT.md` trong thư m
 - KHÔNG dựng video thật khi người dùng chưa nói rõ "ok dựng" cho đúng mẻ đó. Chỉ chạy `--preview` sau khi họ duyệt nội dung.
 - Không xóa file (thư mục chặn xóa); cái gì bỏ đi thì chuyển vào `_to_delete/` và báo người dùng.
 - Không sửa `assets/`, `style.json`, `tools/` khi người dùng chưa đồng ý.
+- Sticker/kiểu chữ: ưu tiên dùng lại loại có sẵn; không có thì tạo mới trong tools/remotion/src/Custom.tsx và lưu lại để dùng tiếp (AGENT.md mục "Tạo sticker / kiểu chữ mới").
 - Lỗi thì dừng và báo nguyên văn + đề xuất cách sửa, chờ "ok sửa".
 - Không làm ảnh bìa (người dùng làm trong TikTok).
 - Mỗi lệnh `device_bash` tối đa ~170 giây: luôn bọc `timeout 170`, chạy lại cho tới khi script in DONE.

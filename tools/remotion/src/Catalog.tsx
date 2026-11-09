@@ -6,12 +6,15 @@ import {Label} from './Label';
 import {THEMES} from './Pack';
 import {DOODLE_LIST} from './Doodles';
 import {DOODLE2_PAGES} from './Doodles2';
+import {CUSTOM, CUSTOM_TEXT, CUSTOM_LABEL} from './Custom';
+import {Label} from './Label';
 
 // Bảng mẫu cho agent và người dùng chọn (dựng bằng tools/make_catalog.sh):
 //  page 1 catalog_stickers.png  sticker cơ bản      page 2 catalog_chu.png       kiểu chữ mốc giờ
 //  page 3 catalog_chude.png     sticker theo chủ đề  page 4 catalog_chu_sticker.png kiểu chữ sticker
 //  page 5 catalog_combo.png     combo dựng sẵn (tools/presets.json)
 //  page 6 catalog_netve.png     nét trắng vẽ tay kiểu "Yummy!" + chữ ký script
+//  page 10 catalog_tutao.png   thư viện tự tạo (Custom.tsx)
 //  page 7 catalog_netve2.png    nét trắng mở rộng: ăn uống + cảm xúc   page 8 catalog_netve3.png  thú ló + em bé & trang trí
 const BASIC: Partial<Sticker>[] = [
   {type: 'shock'}, {type: 'heart'}, {type: 'cat'}, {type: 'sleep', size: 70}, {type: 'sparkle'},
@@ -83,6 +86,32 @@ export const Catalog: React.FC<{page?: number; seconds?: number; presets?: Prese
         {DOODLE_LIST.map((ty, i) => cell({type: ty, x: 0, y: 0, size: 84} as Sticker, ty, cw, ch, i, (i % cols) * cw, Math.floor(i / cols) * ch + 6))}
         {cell({type: 'text', style: 'script', text: 'Yummy!', size: 56, x: 0, y: 0} as Sticker, 'text · style "script"', 360, 200, 90, 0, 5 * ch + 20)}
         {cell({type: 'text', style: 'script', text: 'ngon quá nè', size: 48, x: 0, y: 0} as Sticker, 'text · style "script"', 360, 200, 91, 360, 5 * ch + 20)}
+      </AbsoluteFill>);
+  }
+  if (page === 10) { // catalog_tutao.png: thư viện tự tạo (Custom.tsx)
+    const st = Object.keys(CUSTOM), tx = Object.keys(CUSTOM_TEXT), lb = Object.keys(CUSTOM_LABEL);
+    const cols = 4, cw = 720 / cols, ch = 170;
+    const h1 = Math.ceil(st.length / cols) * ch, h2 = Math.ceil(tx.length / 2) * 130;
+    const head = (txt: string, top: number) => <div style={{position: 'absolute', left: 20, top, ...nameCss, fontSize: 26}}>{txt}</div>;
+    const empty = !st.length && !tx.length && !lb.length;
+    return (
+      <AbsoluteFill style={{background: bg}}>
+        {empty ? <div style={{position: 'absolute', top: 560, width: '100%', textAlign: 'center', ...nameCss, fontSize: 34}}>
+          Thư viện tự tạo đang trống{'\n'}(xem tools/remotion/src/Custom.tsx)</div> : null}
+        {st.length ? head('Sticker tự tạo (type)', 10) : null}
+        {st.map((ty, i) => cell({type: ty, x: 0, y: 0, size: 100, text: 'mẫu'} as Sticker, ty, cw, ch, i,
+          (i % cols) * cw, 44 + Math.floor(i / cols) * ch))}
+        {tx.length ? head('Kiểu chữ sticker tự tạo (type "text", style)', 54 + h1) : null}
+        {tx.map((nm, i) => cell({type: 'text', style: nm, text: 'Ngon quá!', size: 48, x: 0, y: 0} as Sticker, 'style "' + nm + '"',
+          360, 130, 200 + i, (i % 2) * 360, 88 + h1 + Math.floor(i / 2) * 130))}
+        {lb.length ? head('Kiểu chữ mốc giờ tự tạo (labels[].style)', 98 + h1 + h2) : null}
+        {lb.map((nm, i) => (
+          <React.Fragment key={'l' + i}>
+            <Label time="" text={'Mẫu *' + nm + '*'} style={nm} pos={140 + h1 + h2 + i * 110} seconds={2}
+              timeIn={false} textIn={false} textOut={false} theme={p.theme} />
+            <div style={{position: 'absolute', left: 0, width: '100%', textAlign: 'center', top: 212 + h1 + h2 + i * 110, ...nameCss}}>
+              {'style "' + nm + '"'}</div>
+          </React.Fragment>))}
       </AbsoluteFill>);
   }
   if (page === 7 || page === 8) {

@@ -63,3 +63,7 @@ Cột "Combo" là tên trong tools/presets.json (xem catalog_combo.png); cột "
 - Chữ phản ứng là tiếng lòng (của bé hoặc người quay): ngắn, có cảm xúc, có thể kèm "~", "!", "...".
 - Kiểu script hợp chữ ngắn 1–3 từ; câu dài dùng hand hoặc sticker cho dễ đọc.
 - Đừng lặp cùng 1 câu phản ứng quá 1 lần trong video; xen kẽ kiểu chữ nhưng cả video không quá 3 kiểu.
+
+## Tự tạo (tools/remotion/src/Custom.tsx — ảnh mẫu catalog_tutao.png)
+Mỗi lần tạo mới thêm 1 dòng: `tên` | loại (sticker / chữ sticker / chữ mốc giờ) | dùng khi nào | ngày tạo
+(chưa có mục nào)

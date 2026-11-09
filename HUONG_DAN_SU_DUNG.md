@@ -95,6 +95,10 @@ Muốn áp dụng cho MỌI video sau (cỡ chữ, màu, âm lượng…): nói 
 
 ## 4. Lưu ý quan trọng
 
+- **Sticker và kiểu chữ:** Claude dùng thư viện có sẵn trước; nếu không có loại hợp cảnh, Claude ghi "(tạo mới: ...)" trong
+  kế hoạch — bạn duyệt kế hoạch là đồng ý. Đồ tạo mới được lưu vào thư viện tự tạo để các video sau dùng lại
+  (xem ảnh `tools\remotion\catalog_tutao.png`). Muốn Claude tạo theo ý mình, cứ mô tả: *"thêm sticker con mèo ôm bình sữa"*.
+
 - **Luôn mở chat trong app Claude trên chính máy tính có thư mục** (không dùng web hay điện thoại), vì Claude cần
   truy cập file trên máy. Máy phải bật và mở app Claude trong lúc dựng.
 - **Đừng mở 2 đoạn chat cùng làm 1 lúc**: chúng sẽ ghi đè lên nhau.
