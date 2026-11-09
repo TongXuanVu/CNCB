@@ -1,0 +1,30 @@
+# CNCB — Agent edit video "Chuyện nhà Chà Bông"
+
+Bộ công cụ để **Claude** (app Claude trên máy tính) ghép nhiều clip ngắn thành 1 video TikTok 9:16: mở đầu tên kênh,
+chữ mốc giờ theo cảnh, sticker, nhạc cắt theo nhịp, hiệu ứng âm thanh, end card. Người dùng duyệt từng bước.
+
+- Cách dùng hằng ngày: xem **HUONG_DAN_SU_DUNG.md**
+- Quy trình + tham số cho agent: **AGENT.md**
+- Lối tắt `/editvideocncb`: nhờ Claude "tạo skill từ tools/skill/SKILL.md"
+
+## Cài đặt lần đầu
+1. Tải repo về máy, đặt thư mục tên **ChuyệnNhàChàBông** (giữ nguyên tên có dấu), ví dụ `E:\ChuyệnNhàChàBông`.
+2. Chép **nhạc** vào `assets/music/` (vd `Download.mp3`) và (tuỳ chọn) video mẫu phong cách vào `assets/template.mp4`.
+   Hai thứ này không có trong repo vì là tài liệu có bản quyền.
+3. Mở chat trong app Claude trên máy tính, cho Claude quyền thư mục đó, rồi nhờ Claude chạy:
+   `bash tools/install.sh` (tải ffmpeg 8.1, ffmpeg-skill, cài Remotion; chạy lại nếu bị ngắt), sau đó `source tools/setup.sh`.
+
+## Cấu trúc
+| Đường dẫn | Nội dung |
+|---|---|
+| `Video/` | clip mới cho video kế tiếp |
+| `batches/` | mỗi video 1 thư mục: clips, kế hoạch, plan.json, ảnh xem trước, output |
+| `assets/` | fonts (OFL), sfx (tự tổng hợp), end.mp4, music/ (tự thêm) |
+| `tools/render_batch.py` | dựng video theo plan.json (Remotion + ffmpeg) |
+| `tools/audio_tools.py` | dò nhịp nhạc (numpy), tạo/ghép hiệu ứng âm thanh |
+| `tools/remotion/src/` | lớp chữ, sticker, hiệu ứng (React/Remotion) |
+| `style.json` | font, cỡ, màu, vị trí chữ, âm lượng nhạc/SFX |
+
+## Bản quyền thành phần
+Fonts: SIL Open Font License (Google Fonts). Remotion: miễn phí cho cá nhân/công ty ≤3 người.
+ffmpeg-skill: MIT. ffmpeg (BtbN build): GPL. Tiếng hiệu ứng trong assets/sfx: tự tổng hợp bằng code.

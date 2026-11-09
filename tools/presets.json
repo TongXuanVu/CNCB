@@ -1,0 +1,1098 @@
+{
+ "_huong_dan": "Combo sticker dựng sẵn. Dùng trong plan.json: {\"preset\": \"an_ngon\", \"x\": 0.5, \"y\": 0.82, \"scale\": 1, \"delay\": 0.3, \"text\": \"chữ thay thế (tuỳ chọn)\"}. dx, dy = độ lệch so với (x, y), tính theo tỉ lệ khung hình. Xem catalog_combo.png.",
+ "an_ngon": {
+  "desc": "Ăn ngon",
+  "items": [
+   {
+    "type": "yum",
+    "dx": -0.17,
+    "dy": 0,
+    "size": 140,
+    "anim": "bounce"
+   },
+   {
+    "type": "text",
+    "text": "Yummy!",
+    "style": "outline",
+    "dx": 0.12,
+    "dy": 0.03,
+    "size": 60,
+    "rotate": -8,
+    "anim": "type",
+    "delay": 0.3
+   }
+  ]
+ },
+ "ngon_xiu": {
+  "desc": "Ngon xỉu",
+  "items": [
+   {
+    "type": "love",
+    "dx": -0.18,
+    "dy": 0,
+    "size": 130,
+    "anim": "pulse"
+   },
+   {
+    "type": "text",
+    "text": "ngon xỉu!",
+    "style": "comic",
+    "dx": 0.12,
+    "dy": 0.02,
+    "size": 58,
+    "rotate": -6,
+    "anim": "pop",
+    "delay": 0.3
+   }
+  ]
+ },
+ "doi_bung": {
+  "desc": "Đói bụng",
+  "items": [
+   {
+    "type": "bowl",
+    "dx": -0.15,
+    "dy": 0,
+    "size": 130,
+    "anim": "wiggle"
+   },
+   {
+    "type": "text",
+    "text": "đói quá à",
+    "style": "hand",
+    "dx": 0.14,
+    "dy": 0.02,
+    "size": 54,
+    "anim": "type",
+    "delay": 0.3
+   }
+  ]
+ },
+ "uong_nuoc": {
+  "desc": "Uống nước mát",
+  "items": [
+   {
+    "type": "drink",
+    "dx": -0.15,
+    "dy": 0,
+    "size": 130,
+    "anim": "bounce"
+   },
+   {
+    "type": "text",
+    "text": "mát lạnh~",
+    "style": "neon",
+    "color2": "#29B6F6",
+    "dx": 0.14,
+    "dy": 0.02,
+    "size": 54,
+    "delay": 0.3
+   }
+  ]
+ },
+ "cafe_sang": {
+  "desc": "Cà phê sáng",
+  "items": [
+   {
+    "type": "coffee",
+    "dx": -0.15,
+    "dy": 0.02,
+    "size": 130,
+    "anim": "pop"
+   },
+   {
+    "type": "sun",
+    "dx": 0.18,
+    "dy": -0.05,
+    "size": 100,
+    "anim": "spin",
+    "delay": 0.2
+   },
+   {
+    "type": "text",
+    "text": "cà phê sáng",
+    "style": "sticker",
+    "dx": 0.12,
+    "dy": 0.06,
+    "size": 44,
+    "delay": 0.4
+   }
+  ]
+ },
+ "gia_re": {
+  "desc": "Giá rẻ",
+  "items": [
+   {
+    "type": "burst",
+    "text": "200k",
+    "dx": 0,
+    "dy": 0,
+    "size": 120,
+    "anim": "drop"
+   },
+   {
+    "type": "coin",
+    "dx": -0.2,
+    "dy": 0.05,
+    "size": 80,
+    "delay": 0.3
+   },
+   {
+    "type": "coin",
+    "dx": 0.21,
+    "dy": -0.04,
+    "size": 64,
+    "delay": 0.45
+   }
+  ]
+ },
+ "sale": {
+  "desc": "Sale / khuyến mãi",
+  "items": [
+   {
+    "type": "pricetag",
+    "text": "SALE",
+    "dx": 0,
+    "dy": 0,
+    "size": 110,
+    "anim": "wiggle"
+   },
+   {
+    "type": "fire",
+    "dx": 0.22,
+    "dy": -0.03,
+    "size": 90,
+    "delay": 0.3
+   }
+  ]
+ },
+ "dang_yeu": {
+  "desc": "Dễ thương",
+  "items": [
+   {
+    "type": "shy",
+    "dx": -0.17,
+    "dy": 0,
+    "size": 130,
+    "anim": "pop"
+   },
+   {
+    "type": "hearts",
+    "dx": 0.02,
+    "dy": -0.06,
+    "size": 110,
+    "delay": 0.2
+   },
+   {
+    "type": "text",
+    "text": "dễ thương xỉu",
+    "style": "sticker",
+    "dx": 0.14,
+    "dy": 0.04,
+    "size": 44,
+    "rotate": -5,
+    "delay": 0.4
+   }
+  ]
+ },
+ "be_cuoi": {
+  "desc": "Cười lớn",
+  "items": [
+   {
+    "type": "laugh",
+    "dx": -0.15,
+    "dy": 0,
+    "size": 130,
+    "anim": "bounce"
+   },
+   {
+    "type": "text",
+    "text": "hahaha",
+    "style": "comic",
+    "dx": 0.14,
+    "dy": 0.01,
+    "size": 56,
+    "rotate": 6,
+    "anim": "pop",
+    "delay": 0.25
+   }
+  ]
+ },
+ "be_khoc": {
+  "desc": "Khóc nhè",
+  "items": [
+   {
+    "type": "cry",
+    "dx": -0.15,
+    "dy": 0,
+    "size": 130,
+    "anim": "wiggle"
+   },
+   {
+    "type": "bubble",
+    "text": "oa oa...",
+    "dx": 0.15,
+    "dy": -0.03,
+    "size": 40,
+    "delay": 0.3
+   }
+  ]
+ },
+ "bat_ngo": {
+  "desc": "Bất ngờ",
+  "items": [
+   {
+    "type": "wow",
+    "dx": -0.12,
+    "dy": 0,
+    "size": 130,
+    "anim": "pop"
+   },
+   {
+    "type": "exclaim",
+    "dx": 0.12,
+    "dy": -0.03,
+    "size": 100,
+    "anim": "bounce",
+    "delay": 0.2
+   }
+  ]
+ },
+ "suy_nghi": {
+  "desc": "Suy nghĩ / thắc mắc",
+  "items": [
+   {
+    "type": "think",
+    "dx": -0.12,
+    "dy": 0,
+    "size": 130,
+    "anim": "pop"
+   },
+   {
+    "type": "question",
+    "dx": 0.12,
+    "dy": -0.04,
+    "size": 100,
+    "anim": "wiggle",
+    "delay": 0.2
+   }
+  ]
+ },
+ "buon_ngu": {
+  "desc": "Buồn ngủ",
+  "items": [
+   {
+    "type": "sleepy",
+    "dx": -0.14,
+    "dy": 0,
+    "size": 130,
+    "anim": "float"
+   },
+   {
+    "type": "text",
+    "text": "buồn ngủ quá...",
+    "style": "hand",
+    "dx": 0.13,
+    "dy": 0.03,
+    "size": 50,
+    "anim": "type",
+    "delay": 0.3
+   }
+  ]
+ },
+ "di_choi": {
+  "desc": "Lên đường đi chơi",
+  "items": [
+   {
+    "type": "car",
+    "dx": -0.12,
+    "dy": 0.01,
+    "size": 110,
+    "anim": "slide"
+   },
+   {
+    "type": "pin",
+    "dx": 0.2,
+    "dy": -0.03,
+    "size": 90,
+    "anim": "drop",
+    "delay": 0.3
+   },
+   {
+    "type": "text",
+    "text": "lên đường!",
+    "style": "retro",
+    "dx": 0.02,
+    "dy": 0.07,
+    "size": 52,
+    "delay": 0.5
+   }
+  ]
+ },
+ "check_in": {
+  "desc": "Check-in",
+  "items": [
+   {
+    "type": "camera",
+    "dx": -0.14,
+    "dy": 0,
+    "size": 110,
+    "anim": "pop"
+   },
+   {
+    "type": "pin",
+    "dx": 0.16,
+    "dy": -0.02,
+    "size": 90,
+    "anim": "bounce",
+    "delay": 0.2
+   },
+   {
+    "type": "text",
+    "text": "check-in",
+    "style": "tag",
+    "dx": 0,
+    "dy": 0.07,
+    "size": 40,
+    "delay": 0.4
+   }
+  ]
+ },
+ "troi_dep": {
+  "desc": "Trời đẹp",
+  "items": [
+   {
+    "type": "sun",
+    "dx": -0.12,
+    "dy": -0.02,
+    "size": 120,
+    "anim": "pop"
+   },
+   {
+    "type": "cloud",
+    "dx": 0.15,
+    "dy": 0.01,
+    "size": 80,
+    "anim": "float",
+    "delay": 0.2
+   },
+   {
+    "type": "text",
+    "text": "trời đẹp quá",
+    "style": "hand",
+    "dx": 0,
+    "dy": 0.07,
+    "size": 52,
+    "anim": "type",
+    "delay": 0.4
+   }
+  ]
+ },
+ "troi_mua": {
+  "desc": "Trời mưa",
+  "items": [
+   {
+    "type": "rain",
+    "dx": -0.12,
+    "dy": 0,
+    "size": 120,
+    "anim": "pop"
+   },
+   {
+    "type": "umbrella",
+    "dx": 0.15,
+    "dy": 0.01,
+    "size": 110,
+    "anim": "wiggle",
+    "delay": 0.2
+   }
+  ]
+ },
+ "sinh_nhat": {
+  "desc": "Sinh nhật",
+  "items": [
+   {
+    "type": "cake",
+    "dx": 0,
+    "dy": 0,
+    "size": 130,
+    "anim": "pop"
+   },
+   {
+    "type": "popper",
+    "dx": -0.22,
+    "dy": -0.03,
+    "size": 100,
+    "delay": 0.2
+   },
+   {
+    "type": "balloon",
+    "dx": 0.22,
+    "dy": -0.05,
+    "size": 110,
+    "anim": "float",
+    "delay": 0.3
+   },
+   {
+    "type": "text",
+    "text": "Happy Birthday!",
+    "style": "gradient",
+    "dx": 0,
+    "dy": 0.08,
+    "size": 52,
+    "delay": 0.5
+   }
+  ]
+ },
+ "tet": {
+  "desc": "Tết",
+  "items": [
+   {
+    "type": "lantern",
+    "dx": -0.2,
+    "dy": -0.03,
+    "size": 120,
+    "anim": "drop"
+   },
+   {
+    "type": "firework",
+    "dx": 0.2,
+    "dy": -0.05,
+    "size": 120,
+    "delay": 0.2
+   },
+   {
+    "type": "text",
+    "text": "Tết đến rồi!",
+    "style": "gradient",
+    "color": "#FF5252",
+    "color2": "#FFD54F",
+    "dx": 0,
+    "dy": 0.06,
+    "size": 56,
+    "delay": 0.4
+   }
+  ]
+ },
+ "trung_thu": {
+  "desc": "Trung thu",
+  "items": [
+   {
+    "type": "star_lantern",
+    "dx": -0.16,
+    "dy": 0,
+    "size": 120,
+    "anim": "pop"
+   },
+   {
+    "type": "moon",
+    "dx": 0.17,
+    "dy": -0.04,
+    "size": 100,
+    "anim": "float",
+    "delay": 0.2
+   },
+   {
+    "type": "text",
+    "text": "Trung thu vui vẻ",
+    "style": "retro",
+    "dx": 0,
+    "dy": 0.07,
+    "size": 46,
+    "delay": 0.4
+   }
+  ]
+ },
+ "noel": {
+  "desc": "Giáng sinh",
+  "items": [
+   {
+    "type": "xmas_tree",
+    "dx": -0.15,
+    "dy": 0,
+    "size": 130,
+    "anim": "pop"
+   },
+   {
+    "type": "gift",
+    "dx": 0.15,
+    "dy": 0.02,
+    "size": 100,
+    "delay": 0.2
+   },
+   {
+    "type": "snow",
+    "dx": 0.05,
+    "dy": -0.06,
+    "size": 60,
+    "delay": 0.3
+   }
+  ]
+ },
+ "gioi_qua": {
+  "desc": "Khen giỏi",
+  "items": [
+   {
+    "type": "medal",
+    "dx": -0.14,
+    "dy": 0,
+    "size": 120,
+    "anim": "drop"
+   },
+   {
+    "type": "like",
+    "dx": 0.15,
+    "dy": 0,
+    "size": 100,
+    "anim": "pop",
+    "delay": 0.2
+   },
+   {
+    "type": "text",
+    "text": "giỏi quá!",
+    "style": "sticker",
+    "dx": 0,
+    "dy": 0.07,
+    "size": 46,
+    "delay": 0.4
+   }
+  ]
+ },
+ "quay_len": {
+  "desc": "Nhảy / hát",
+  "items": [
+   {
+    "type": "music",
+    "dx": -0.17,
+    "dy": -0.02,
+    "size": 100,
+    "anim": "bounce"
+   },
+   {
+    "type": "mic",
+    "dx": 0.17,
+    "dy": 0,
+    "size": 100,
+    "anim": "wiggle",
+    "delay": 0.2
+   },
+   {
+    "type": "text",
+    "text": "quẩy lên!",
+    "style": "neon",
+    "dx": 0,
+    "dy": 0.06,
+    "size": 56,
+    "delay": 0.3
+   }
+  ]
+ },
+ "be_ngu": {
+  "desc": "Bé ngủ",
+  "items": [
+   {
+    "type": "moon",
+    "dx": -0.12,
+    "dy": 0,
+    "size": 110,
+    "anim": "float"
+   },
+   {
+    "type": "sleep",
+    "dx": 0.12,
+    "dy": 0,
+    "size": 100,
+    "delay": 0.2
+   }
+  ]
+ },
+ "tam_biet": {
+  "desc": "Tạm biệt",
+  "items": [
+   {
+    "type": "bubble",
+    "text": "Byee!",
+    "dx": -0.1,
+    "dy": -0.02,
+    "size": 48,
+    "anim": "pop"
+   },
+   {
+    "type": "hearts",
+    "dx": 0.17,
+    "dy": 0.01,
+    "size": 110,
+    "delay": 0.3
+   }
+  ]
+ },
+ "follow": {
+  "desc": "Kêu gọi follow",
+  "items": [
+   {
+    "type": "like",
+    "dx": -0.17,
+    "dy": 0,
+    "size": 100,
+    "anim": "bounce"
+   },
+   {
+    "type": "text",
+    "text": "follow nhà mình nha!",
+    "style": "sticker",
+    "dx": 0.1,
+    "dy": 0.01,
+    "size": 40,
+    "delay": 0.3
+   }
+  ]
+ },
+ "yummy_netve": {
+  "desc": "Ăn ngon kiểu nét trắng",
+  "items": [
+   {
+    "type": "text",
+    "style": "script",
+    "text": "Yummy!",
+    "dx": -0.14,
+    "dy": 0.04,
+    "size": 56,
+    "rotate": -6,
+    "anim": "type"
+   },
+   {
+    "type": "cat_peek",
+    "dx": 0.16,
+    "dy": -0.02,
+    "size": 120,
+    "anim": "pop",
+    "delay": 0.3
+   },
+   {
+    "type": "burst_lines",
+    "dx": 0.2,
+    "dy": -0.1,
+    "size": 80,
+    "delay": 0.5
+   }
+  ]
+ },
+ "giat_minh": {
+  "desc": "Giật mình",
+  "items": [
+   {
+    "type": "splash",
+    "dx": -0.08,
+    "dy": 0,
+    "size": 130,
+    "anim": "pop"
+   },
+   {
+    "type": "exclaim_line",
+    "dx": 0.12,
+    "dy": -0.03,
+    "size": 90,
+    "anim": "bounce",
+    "delay": 0.2
+   }
+  ]
+ },
+ "chong_mat": {
+  "desc": "Chóng mặt / rối",
+  "items": [
+   {
+    "type": "swirl",
+    "dx": -0.08,
+    "dy": 0,
+    "size": 100
+   },
+   {
+    "type": "sweat_drop",
+    "dx": 0.1,
+    "dy": 0.01,
+    "size": 80,
+    "delay": 0.25
+   }
+  ]
+ },
+ "ngai_ngung": {
+  "desc": "Ngại ngùng",
+  "items": [
+   {
+    "type": "blush_lines",
+    "dx": -0.13,
+    "dy": 0.02,
+    "size": 90,
+    "anim": "fade"
+   },
+   {
+    "type": "blush_lines",
+    "dx": 0.13,
+    "dy": 0.02,
+    "size": 90,
+    "anim": "fade"
+   },
+   {
+    "type": "hearts_line",
+    "dx": 0.02,
+    "dy": -0.07,
+    "size": 100,
+    "delay": 0.3
+   }
+  ]
+ },
+ "y_tuong": {
+  "desc": "Có ý tưởng",
+  "items": [
+   {
+    "type": "lightbulb",
+    "dx": 0,
+    "dy": 0,
+    "size": 110,
+    "anim": "drop"
+   },
+   {
+    "type": "burst_lines",
+    "dx": 0,
+    "dy": -0.01,
+    "size": 170,
+    "delay": 0.25
+   }
+  ]
+ },
+ "byee_netve": {
+  "desc": "Tạm biệt kiểu nét trắng",
+  "items": [
+   {
+    "type": "wave_hand",
+    "dx": -0.15,
+    "dy": 0,
+    "size": 110
+   },
+   {
+    "type": "text",
+    "style": "script",
+    "text": "Byee~",
+    "dx": 0.1,
+    "dy": 0.03,
+    "size": 60,
+    "anim": "type",
+    "delay": 0.3
+   }
+  ]
+ },
+ "be_khoc_netve": {
+  "desc": "Khóc kiểu nét trắng",
+  "items": [
+   {
+    "type": "tears_line",
+    "dx": 0,
+    "dy": 0,
+    "size": 120
+   },
+   {
+    "type": "text",
+    "style": "script",
+    "text": "huhu...",
+    "dx": 0.18,
+    "dy": -0.04,
+    "size": 44,
+    "anim": "type",
+    "delay": 0.3
+   }
+  ]
+ },
+ "an_ngon_netve": {
+  "desc": "Ăn ngon nét trắng: khói + lấp lánh + chữ măm măm",
+  "items": [
+   {
+    "type": "steam_line",
+    "dx": -0.12,
+    "dy": -0.08,
+    "size": 90
+   },
+   {
+    "type": "sparkle4_line",
+    "dx": 0.15,
+    "dy": -0.1,
+    "size": 80,
+    "delay": 0.3
+   },
+   {
+    "type": "text",
+    "style": "script",
+    "text": "măm măm",
+    "dx": 0.02,
+    "dy": 0.05,
+    "size": 52,
+    "rotate": -6,
+    "anim": "type",
+    "delay": 0.5
+   }
+  ]
+ },
+ "vo_beo_netve": {
+  "desc": "Ăn no / vỗ béo: heo ló + đũa + chữ no căng bụng",
+  "items": [
+   {
+    "type": "pig_peek",
+    "dx": -0.13,
+    "dy": 0.0,
+    "size": 120
+   },
+   {
+    "type": "chopsticks_line",
+    "dx": 0.15,
+    "dy": -0.08,
+    "size": 90,
+    "delay": 0.3
+   },
+   {
+    "type": "text",
+    "style": "script",
+    "text": "no căng bụng",
+    "dx": 0.03,
+    "dy": 0.08,
+    "size": 48,
+    "rotate": -5,
+    "anim": "type",
+    "delay": 0.6
+   }
+  ]
+ },
+ "tra_sua_netve": {
+  "desc": "Uống trà sữa: ly trà sữa + tim + chữ",
+  "items": [
+   {
+    "type": "cup_line",
+    "dx": -0.12,
+    "dy": -0.02,
+    "size": 110
+   },
+   {
+    "type": "hearts_line",
+    "dx": 0.12,
+    "dy": -0.1,
+    "size": 80,
+    "delay": 0.3
+   },
+   {
+    "type": "text",
+    "style": "script",
+    "text": "mlem mlem",
+    "dx": 0.06,
+    "dy": 0.06,
+    "size": 50,
+    "rotate": -6,
+    "anim": "type",
+    "delay": 0.5
+   }
+  ]
+ },
+ "di_choi_netve": {
+  "desc": "Đi chơi nét trắng: máy bay giấy + mây + chữ",
+  "items": [
+   {
+    "type": "paper_plane_line",
+    "dx": -0.12,
+    "dy": -0.06,
+    "size": 100
+   },
+   {
+    "type": "cloud_line",
+    "dx": 0.15,
+    "dy": -0.1,
+    "size": 90,
+    "delay": 0.3
+   },
+   {
+    "type": "text",
+    "style": "script",
+    "text": "đi chơi thôi",
+    "dx": 0.02,
+    "dy": 0.06,
+    "size": 50,
+    "rotate": -5,
+    "anim": "type",
+    "delay": 0.5
+   }
+  ]
+ },
+ "check_in_netve": {
+  "desc": "Check-in chụp hình: máy ảnh + lấp lánh + tay chữ V",
+  "items": [
+   {
+    "type": "camera_line",
+    "dx": -0.13,
+    "dy": -0.04,
+    "size": 100
+   },
+   {
+    "type": "peace_hand",
+    "dx": 0.14,
+    "dy": -0.04,
+    "size": 100,
+    "delay": 0.3
+   },
+   {
+    "type": "sparkle4_line",
+    "dx": 0.0,
+    "dy": -0.12,
+    "size": 70,
+    "delay": 0.5
+   }
+  ]
+ },
+ "be_ngu_netve": {
+  "desc": "Bé ngủ nét trắng: trăng + zzz + chữ ngủ ngoan",
+  "items": [
+   {
+    "type": "moon_line",
+    "dx": -0.13,
+    "dy": -0.06,
+    "size": 100
+   },
+   {
+    "type": "zzz_line",
+    "dx": 0.13,
+    "dy": -0.1,
+    "size": 90,
+    "delay": 0.3
+   },
+   {
+    "type": "text",
+    "style": "script",
+    "text": "ngủ ngoan nha",
+    "dx": 0.02,
+    "dy": 0.06,
+    "size": 48,
+    "rotate": -5,
+    "anim": "type",
+    "delay": 0.5
+   }
+  ]
+ },
+ "yeu_qua_netve": {
+  "desc": "Dễ thương / yêu quá: tim đập + mắt lấp lánh + chữ",
+  "items": [
+   {
+    "type": "heart_beat",
+    "dx": -0.13,
+    "dy": -0.06,
+    "size": 100
+   },
+   {
+    "type": "sparkle_eyes",
+    "dx": 0.13,
+    "dy": -0.1,
+    "size": 90,
+    "delay": 0.3
+   },
+   {
+    "type": "text",
+    "style": "script",
+    "text": "dễ thương xỉu",
+    "dx": 0.02,
+    "dy": 0.06,
+    "size": 48,
+    "rotate": -5,
+    "anim": "type",
+    "delay": 0.5
+   }
+  ]
+ },
+ "em_be_netve": {
+  "desc": "Em bé: bình sữa + chân bé + nơ",
+  "items": [
+   {
+    "type": "bottle_line",
+    "dx": -0.14,
+    "dy": -0.02,
+    "size": 100
+   },
+   {
+    "type": "footprint_line",
+    "dx": 0.12,
+    "dy": 0.02,
+    "size": 90,
+    "delay": 0.3
+   },
+   {
+    "type": "ribbon_line",
+    "dx": 0.0,
+    "dy": -0.1,
+    "size": 70,
+    "delay": 0.5
+   }
+  ]
+ },
+ "that_vong_netve": {
+  "desc": "Thất vọng / buồn: mây mưa + vạch u ám + dấu ...",
+  "items": [
+   {
+    "type": "gloom_lines",
+    "dx": -0.1,
+    "dy": -0.1,
+    "size": 100
+   },
+   {
+    "type": "worry_lines",
+    "dx": 0.14,
+    "dy": -0.06,
+    "size": 80,
+    "delay": 0.3
+   },
+   {
+    "type": "dots_line",
+    "dx": 0.02,
+    "dy": 0.05,
+    "size": 80,
+    "delay": 0.5
+   }
+  ]
+ },
+ "khen_netve": {
+  "desc": "Khen / tuyệt vời: like + vương miện + lấp lánh",
+  "items": [
+   {
+    "type": "thumbs_line",
+    "dx": -0.13,
+    "dy": 0.0,
+    "size": 100
+   },
+   {
+    "type": "crown_line",
+    "dx": 0.13,
+    "dy": -0.1,
+    "size": 80,
+    "delay": 0.3
+   },
+   {
+    "type": "shine_lines",
+    "dx": 0.12,
+    "dy": 0.04,
+    "size": 70,
+    "delay": 0.5
+   }
+  ]
+ },
+ "hoi_ba_netve": {
+  "desc": "Bé hỏi / nghĩ: bong bóng nghĩ (đổi chữ bằng text) + dấu ?",
+  "items": [
+   {
+    "type": "bubble_think",
+    "dx": 0.0,
+    "dy": -0.04,
+    "size": 110,
+    "text": "ăn gì ta?"
+   },
+   {
+    "type": "question_line",
+    "dx": 0.17,
+    "dy": 0.04,
+    "size": 70,
+    "delay": 0.4
+   }
+  ]
+ }
+}
