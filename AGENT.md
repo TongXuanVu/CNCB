@@ -46,6 +46,9 @@
    -> đưa danh sách cho Vũ, Vũ chọn template + mp3 nào. KHÔNG tự chọn.
    - Video/clip trống (mã 1): báo Vũ.
    - Video/template hoặc Video/mp3 trống (mã 3): báo Vũ, KHÔNG tự lấy file trong assets/.
+     Gợi ý Vũ: tự bỏ video mẫu vào Video/template và nhạc vào Video/mp3; chưa có thì NHẤN ĐÚP Video/Tai_TikTok.bat TRÊN WINDOWS
+     (cửa sổ hỏi link kênh TikTok + số bài; thiếu Python thì tự mở trang tải). Agent KHÔNG tự chạy
+     tai_tiktok.py trong máy ảo (mạng máy ảo không vào được TikTok).
    - Tên file chọn không có (mã 5): báo Vũ.
    - Chọn nhiều template/mp3: tạo mẻ NHIỀU VIDEO (v1, v2...) ghép theo thứ tự đã chọn, xem mục "Mẻ nhiều video".
    - Số template và mp3 lệch nhau mà không bên nào là 1 (mã 4): đưa 2 danh sách cho Vũ, chờ Vũ sửa.

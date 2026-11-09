@@ -2,6 +2,7 @@
 Video/*
 !Video/.gitkeep
 !Video/tai_tiktok.py
+!Video/Tai_TikTok.bat
 # 3 thư mục con: giữ thư mục trống, không đưa nội dung (clip riêng tư, nhạc/video tải về có bản quyền)
 !Video/clip/
 Video/clip/*

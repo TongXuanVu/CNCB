@@ -9,8 +9,11 @@ từng cảnh, sticker, nhạc nền cắt theo nhịp, hiệu ứng âm thanh v
 
 1. **Ứng dụng Claude trên máy tính** (Windows hoặc Mac), đăng nhập tài khoản Claude có gói trả phí.
    Tải tại claude.ai/download.
-2. **Chép thư mục `ChuyệnNhàChàBông`** vào máy, ví dụ `E:\ChuyệnNhàChàBông`.
-   Giữ nguyên tên thư mục (có dấu) và toàn bộ bên trong. Thư mục nặng khoảng 1 GB.
+2. **Tải bộ công cụ về máy**, đặt ĐÚNG tên thư mục `ChuyệnNhàChàBông` (có dấu), ví dụ:
+   `git clone https://github.com/TongXuanVu/CNCB.git "E:\ChuyệnNhàChàBông"`
+   (tải file ZIP thì giải nén rồi đổi tên thư mục `CNCB-main` thành `ChuyệnNhàChàBông`).
+   Sau đó mở chat trong app Claude, nhờ: *"Kết nối thư mục E:\ChuyệnNhàChàBông, chạy `bash tools/install.sh` tới khi
+   xong rồi `source tools/setup.sh`"* (cài ffmpeg + Remotion, ~10–15 phút, chỉ 1 lần).
 3. **Trong Claude, chọn model Opus hoặc Sonnet.** Không dùng Haiku: dễ ghép sai cảnh, bỏ sót bước.
 4. **Tạo lối tắt `/editvideocncb`** (không bắt buộc, cho tiện):
    mở chat mới trong app Claude, gửi câu: *"Tạo skill tên editvideocncb từ nội dung file
@@ -21,9 +24,22 @@ từng cảnh, sticker, nhạc nền cắt theo nhịp, hiệu ứng âm thanh v
 
 ## 2. Mỗi lần làm 1 video
 
-**Bước 0 — Bỏ clip vào thư mục `Video\`**
-Chép tất cả clip (và ảnh, nếu có) của video đó vào `ChuyệnNhàChàBông\Video\`. Mỗi lần chỉ bỏ clip của 1 video.
-Clip được xếp theo thứ tự quay; muốn chắc thứ tự thì đặt tên 01, 02, 03…
+**Bước 0 — Chuẩn bị 3 thứ trong thư mục `Video\`**
+- `Video\clip\`: TẤT CẢ clip (và ảnh) của video sắp làm. Mỗi lần chỉ bỏ clip của 1 video. Đặt tên 01, 02, 03… nếu
+  muốn chắc thứ tự.
+- `Video\template\`: video mẫu để Claude bắt chước nhịp cắt, kiểu chữ, cách đặt sticker.
+- `Video\mp3\`: nhạc nền (mp3/m4a/wav). Điểm cắt cảnh sẽ canh theo nhịp bài này.
+
+**Chưa có video mẫu / nhạc?** Nhấn đúp file **`Video\Tai_TikTok.bat`**:
+1. Cửa sổ đen hiện ra, hỏi link kênh TikTok (vd `https://www.tiktok.com/@ten.kenh`) -> dán vào, Enter.
+2. Nhập số bài muốn tải, Enter. Chờ tải xong, thư mục `template` tự mở ra.
+   Video vào `Video\template\`, nhạc tách ra vào `Video\mp3\`, tên file theo ngày đăng.
+3. Máy chưa có Python: file sẽ báo và mở trang python.org. Tải bản mới nhất, khi cài **tick ô "Add python.exe to PATH"**,
+   cài xong nhấn đúp lại `Tai_TikTok.bat`.
+Lần đầu chạy script sẽ tự cài thư viện tải video. Chỉ dùng video/nhạc tải về để THAM KHẢO hoặc theo đúng quyền sử dụng;
+nhạc có bản quyền có thể bị TikTok tắt tiếng khi đăng.
+
+Có nhiều template/mp3 trong thư mục thì báo Claude dùng file nào (vd "template 2026-11-07, nhạc 2026-11-07").
 
 **Bước 1 — Mở chat mới trong app Claude TRÊN MÁY TÍNH, gửi nội dung**
 Gõ `/editvideocncb` (hoặc dán Prompt khởi động) kèm nội dung video theo mẫu:

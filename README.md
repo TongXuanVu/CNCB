@@ -9,15 +9,16 @@ chữ mốc giờ theo cảnh, sticker, nhạc cắt theo nhịp, hiệu ứng �
 
 ## Cài đặt lần đầu
 1. Tải repo về máy, đặt thư mục tên **ChuyệnNhàChàBông** (giữ nguyên tên có dấu), ví dụ `E:\ChuyệnNhàChàBông`.
-2. Chép **nhạc** vào `assets/music/` (vd `Download.mp3`) và (tuỳ chọn) video mẫu phong cách vào `assets/template.mp4`.
-   Hai thứ này không có trong repo vì là tài liệu có bản quyền.
+2. Mỗi video cần: clip vào `Video/clip/`, video mẫu vào `Video/template/`, nhạc vào `Video/mp3/`.
+   Chưa có mẫu/nhạc thì nhấn đúp `Video/Tai_TikTok.bat` (Windows, cần Python) để tải bài mới nhất của một kênh TikTok.
+   Nội dung các thư mục này không có trong repo (riêng tư / có bản quyền).
 3. Mở chat trong app Claude trên máy tính, cho Claude quyền thư mục đó, rồi nhờ Claude chạy:
    `bash tools/install.sh` (tải ffmpeg 8.1, ffmpeg-skill, cài Remotion; chạy lại nếu bị ngắt), sau đó `source tools/setup.sh`.
 
 ## Cấu trúc
 | Đường dẫn | Nội dung |
 |---|---|
-| `Video/` | clip mới cho video kế tiếp |
+| `Video/` | `clip/` (clip mới), `template/` (video mẫu), `mp3/` (nhạc), `tai_tiktok.py` (tải mẫu + nhạc từ TikTok) |
 | `batches/` | mỗi video 1 thư mục: clips, kế hoạch, plan.json, ảnh xem trước, output |
 | `assets/` | fonts (OFL), sfx (tự tổng hợp), end.mp4, music/ (tự thêm) |
 | `tools/render_batch.py` | dựng video theo plan.json (Remotion + ffmpeg) |
