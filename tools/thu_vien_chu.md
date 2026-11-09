@@ -64,6 +64,20 @@ Cột "Combo" là tên trong tools/presets.json (xem catalog_combo.png); cột "
 - Kiểu script hợp chữ ngắn 1–3 từ; câu dài dùng hand hoặc sticker cho dễ đọc.
 - Đừng lặp cùng 1 câu phản ứng quá 1 lần trong video; xen kẽ kiểu chữ nhưng cả video không quá 3 kiểu.
 
-## Tự tạo (tools/remotion/src/Custom.tsx — ảnh mẫu catalog_tutao.png)
-Mỗi lần tạo mới thêm 1 dòng: `tên` | loại (sticker / chữ sticker / chữ mốc giờ) | dùng khi nào | ngày tạo
-(chưa có mục nào)
+## Nét trắng theo chủ đề (bộ 3 — ảnh catalog_net_*.png)
+Gợi ý chọn theo cảnh (ghép 2–3 nét quanh bé/đồ vật, delay lệch 0,2–0,4 s; có thể kèm chữ script):
+- Đi chơi / xuất phát: car_line hoặc bus_line (mép dưới) + map_pin_line; sân bay: plane_line + ticket_line; dã ngoại: tent_line, backpack_line;
+  biển: palm_line + waves_line + sunglasses_line; núi: mountain_line + cloud_sun_line.  Chữ: "Lên đường thôi!", "Đi chơi nè~"
+- Em bé: baby_face_line, rattle_line, onesie_line, teddy_line; đi dạo: stroller_line; tắm: bath_line; cả nhà: family_line, heart_hands_line.
+  Chữ: "Bé yêu", "Thương ghê", "Cả nhà iu"
+- Nấu ăn / việc nhà: pot_line (nấu cháo, luộc), pan_line (chiên trứng), broom_line, washer_line; giờ giấc: clock_line, alarm_line (thức dậy);
+  buổi tối / ngủ: lamp_line, bed_line; góc nhà: plant_line, sofa_line.  Chữ: "Vào bếp nào", "Dậy thôi!"
+- Thời tiết: mưa rain_line, giông lightning_line, lạnh snowflake_line, gió wind_line, nắng đẹp cloud_sun_line; công viên: tree_line, butterfly_line, cactus_line.
+- Lễ tết: sinh nhật party_hat_line + confetti_line; Trung thu lantern_line; Tết lixi_line + peach_blossom_line + firework_line; Noel xmas_tree_line;
+  kỷ niệm / tình cảm love_letter_line.  Chữ: "Happy birthday!", "Năm mới vui vẻ", "Trung thu vui nha"
+- Mua sắm / giá: cart_line, bag_line, price_tag_line, coin_line (giá rẻ, tiết kiệm), wallet_line, sale_line, receipt_line (tổng tiền).
+  Chữ: "Chỉ 200k!", "Rẻ xỉu", "Săn sale"
+- Học & chơi: book_line, pencil_line, blocks_line, puzzle_line, ball_line, kite_line, gamepad_line.  Chữ: "Bé học bài", "Chơi vui ghê"
+- Thể thao & sức khoẻ: bike_line, dumbbell_line, medal_line, trophy_line (thành tích); ốm: thermometer_line, bandage_line.  Chữ: "Cố lên!", "Mau khoẻ nha"
+
+(Đồ tự tạo của người dùng: xem tools/thu_vien_tutao.md)

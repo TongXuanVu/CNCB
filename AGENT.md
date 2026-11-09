@@ -8,8 +8,8 @@
 5. Phong cách lấy theo template.* của từng mẻ (người dùng bỏ vào Video/template). Kiểu thường gặp: cảnh ngắn 1–3 nhịp
    (~0,7–2 giây), nhạc xuyên suốt, chữ nhỏ trắng kèm emoji ở giữa/dưới, tiêu đề series ở trên, sticker ở cảnh cảm xúc. Trước khi lên kế hoạch, trích vài khung hình
    của batches/<mẻ>/template.* để đối chiếu. Ảnh bìa người dùng tự làm trong TikTok lúc đăng, agent không làm.
-6. Sticker, combo, kiểu chữ: ƯU TIÊN DÙNG LẠI loại có sẵn (ảnh catalog_*.png gồm catalog_tutao.png, tools/presets.json,
-   tools/thu_vien_chu.md). Chỉ khi KHÔNG có loại hợp cảnh mới tạo mới, và tạo trong thư viện tự tạo
+6. Sticker, combo, kiểu chữ: ƯU TIÊN DÙNG LẠI loại có sẵn (ảnh catalog_*.png gồm catalog_tutao.png, tools/presets.json + presets_tutao.json,
+   tools/thu_vien_chu.md + thu_vien_tutao.md). Chỉ khi KHÔNG có loại hợp cảnh mới tạo mới, và tạo trong thư viện tự tạo
    tools/remotion/src/Custom.tsx rồi lưu lại để video sau dùng tiếp (xem mục "Tạo sticker / kiểu chữ mới").
    Không sửa các bộ có sẵn (Stickers.tsx, Doodles*.tsx, Pack.tsx, Label.tsx...) khi người dùng chưa yêu cầu.
 
@@ -95,8 +95,10 @@
   catalog_combo.png (combo dựng sẵn), catalog_chu.png (kiểu chữ mốc giờ), catalog_chu_sticker.png (kiểu chữ sticker),
   catalog_netve.png (nét trắng mảnh vẽ tay kiểu "Yummy!" + chữ ký script),
   catalog_netve2.png + catalog_netve3.png + catalog_combo2.png (56 nét trắng + 11 combo mở rộng — ưu tiên kiểu nét trắng).
+  catalog_net_dichoi_embe.png, catalog_net_nha_thoitiet.png, catalog_net_le_muasam.png, catalog_net_hoc_thethao.png
+  (65 nét trắng THEO CHỦ ĐỀ, bộ 3 — Doodles3.tsx).
 - tools/thu_vien_chu.md: câu chữ mẫu + combo + sticker + kiểu chữ hợp cho từng chủ đề (ăn uống, đi chơi, lễ tết...).
-- Sửa Custom.tsx, tools/presets.json (hoặc style.json khi người dùng yêu cầu) xong thì chạy `timeout 170 bash tools/make_catalog.sh` để cập nhật ảnh mẫu.
+- Sửa Custom.tsx, tools/presets_tutao.json (hoặc style.json khi người dùng yêu cầu) xong thì chạy `timeout 170 bash tools/make_catalog.sh` để cập nhật ảnh mẫu.
 
 ### Chữ mốc giờ (labels)
 - "anim": type (đánh máy, mặc định) | wave (từng chữ nảy lên) | pop | slide | fade
@@ -129,6 +131,7 @@
 | Mặt cảm xúc 2 | cool, think, angry_face, sleepy, kiss | ngầu, nghĩ, giận, buồn ngủ, hôn |
 | Con vật | dog, kitty, bunny, chick | cún, mèo, thỏ, gà con |
 | Nhảy hát | mic, ball, medal | hát, chơi bóng, thành tích |
+| Nét trắng theo chủ đề (bộ 3) | đi chơi: car_line, bus_line, plane_line, map_pin_line, ticket_line, backpack_line, tent_line, mountain_line, sunglasses_line, palm_line, waves_line · em bé & gia đình: baby_face_line, rattle_line, onesie_line, stroller_line, teddy_line, family_line, heart_hands_line, bath_line · nhà & bếp: pot_line, pan_line, broom_line, washer_line, clock_line, alarm_line, lamp_line, bed_line, plant_line, sofa_line · thời tiết: rain_line, lightning_line, snowflake_line, wind_line, tree_line, cactus_line, butterfly_line, cloud_sun_line · lễ tết: party_hat_line, confetti_line, lantern_line, lixi_line, firework_line, xmas_tree_line, peach_blossom_line, love_letter_line · mua sắm: cart_line, bag_line, price_tag_line, coin_line, wallet_line, sale_line, receipt_line · học & chơi: book_line, pencil_line, ball_line, kite_line, blocks_line, puzzle_line, gamepad_line · thể thao & sức khoẻ: bike_line, medal_line, thermometer_line, bandage_line, dumbbell_line, trophy_line | cùng phong cách nét trắng "Yummy!"; chọn theo chủ đề cảnh, size 90–140 |
 
 - Tham số: x, y (0..1, TÂM hình), size (px; mặt/hình nên 120–160, chữ 44–64), delay, until, rotate, color, color2, flip,
   w/h (circle/frame/underline, tỉ lệ khung), text, style (cho text), anim.
@@ -142,7 +145,7 @@
   troi_mua, sinh_nhat, tet, trung_thu, noel, gioi_qua, quay_len, be_ngu, tam_biet, follow; bộ nét trắng: yummy_netve,
   giat_minh, chong_mat, ngai_ngung, y_tuong, byee_netve, be_khoc_netve, an_ngon_netve, vo_beo_netve,
   tra_sua_netve, di_choi_netve, check_in_netve, be_ngu_netve, yeu_qua_netve, em_be_netve, that_vong_netve, khen_netve, hoi_ba_netve. Combo rộng ~0,45 khung: đặt x
-  khoảng 0.3–0.7; thu nhỏ bằng "scale": 0.8 nếu chật. Thêm combo mới (ghép từ sticker có sẵn/tự tạo) khi chưa có combo hợp: viết vào presets.json rồi chạy make_catalog.sh.
+  khoảng 0.3–0.7; thu nhỏ bằng "scale": 0.8 nếu chật. Thêm combo mới (ghép từ sticker có sẵn/tự tạo) khi chưa có combo hợp: viết vào tools/presets_tutao.json (KHÔNG sửa presets.json), ghi vào thu_vien_tutao.md, rồi chạy make_catalog.sh.
 - PHONG CÁCH NÉT TRẮNG (giống video tham khảo của người dùng): rải 3–4 nét trắng QUANH bé thay vì gom 1 chỗ — splash cạnh đầu,
   burst_lines góc trên, thú *_peek cạnh tay/món ăn, chữ script "Yummy!" góc dưới (anim type). Không trộn với sticker màu
   trong cùng cảnh. text style "script" có nét gạch đuôi tự vẽ; size 56–70.
@@ -167,8 +170,10 @@ Khi nào: lên kế hoạch (Bước 1) mà xem hết catalog_*.png + thu_vien_c
    Chữ tiếng Việt: chỉ dùng các font đã nạp ('Round, Emo' | 'Hand, Emo' | 'Script, Emo'), đều có dấu.
 3. Chạy `timeout 170 bash tools/make_catalog.sh` (chạy lại nếu bị ngắt) -> xem tools/remotion/catalog_tutao.png:
    hình phải rõ, không lỗi, đúng ý. Lỗi bundle (TypeScript/JSX) thì sửa ngay trong Custom.tsx.
-4. Thêm 1 dòng vào tools/thu_vien_chu.md mục "Tự tạo" (tên, loại, dùng khi nào) để lần sau tìm được.
+4. Thêm 1 dòng vào tools/thu_vien_tutao.md (tên, loại, dùng khi nào, ngày) để lần sau tìm được.
 5. Dùng trong plan.json như sticker/kiểu chữ có sẵn; gửi ảnh --preview để người dùng duyệt như bình thường.
+Các file của người dùng (giữ nguyên khi cập nhật bằng CaiDat_CNCB.bat): style.json, Custom.tsx, catalog_tutao.png,
+presets_tutao.json, thu_vien_tutao.md. Đồ chung của thư viện (Doodles*.tsx, presets.json, thu_vien_chu.md) được cập nhật.
 Sửa/bỏ một mục tự tạo đã dùng ở video cũ: thêm bản mới tên khác (vd "<tên>_2") thay vì sửa đè, để video cũ dựng lại vẫn y nguyên.
 
 ## Mẫu plan.json

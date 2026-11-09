@@ -15,7 +15,7 @@ từng cảnh, sticker, nhạc nền cắt theo nhịp, hiệu ứng âm thanh v
    Sau đó mở chat trong app Claude, nhắn: *"Kết nối thư mục E:\ChuyệnNhàChàBông, chạy `bash tools/install.sh` tới khi
    xong rồi `source tools/setup.sh`"* (cài ffmpeg + Remotion, ~10–15 phút, chỉ 1 lần).
    **Cập nhật bản mới:** nhấn đúp lại `CaiDat_CNCB.bat` (trong thư mục `ChuyệnNhàChàBông` cũng có). Chỉ công cụ được thay;
-   clip, mẫu, nhạc, video đã làm và `style.json` được giữ nguyên.
+   clip, mẫu, nhạc, video đã làm, `style.json` và thư viện sticker/kiểu chữ tự tạo được giữ nguyên.
 3. **Trong Claude, chọn model Opus hoặc Sonnet.** Không dùng Haiku: dễ ghép sai cảnh, bỏ sót bước.
 4. **Tạo lối tắt `/editvideocncb`** (không bắt buộc, cho tiện):
    mở chat mới trong app Claude, gửi câu: *"Tạo skill tên editvideocncb từ nội dung file

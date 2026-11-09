@@ -5,6 +5,7 @@ import {Star, Sparkle} from './Shapes';
 import {PACK} from './Pack';
 import {DOODLES} from './Doodles';
 import {DOODLES2} from './Doodles2';
+import {DOODLES3} from './Doodles3';
 import {CUSTOM, CUSTOM_TEXT} from './Custom';
 
 // Sticker đặt theo toạ độ (x, y = 0..1 là TÂM hình). Tự vẽ bằng SVG, không dùng hình có bản quyền.
@@ -319,6 +320,7 @@ export const Doodle: React.FC<{s: Sticker; t: Theme; local: number; prog: number
       if (PACK[s.type]) return PACK[s.type]({size, c: s.color, c2: s.color2, local, text: s.text});
       if (DOODLES[s.type]) return DOODLES[s.type]({size, c, local, prog});
       if (DOODLES2[s.type]) return DOODLES2[s.type]({size, c, local, prog, text: s.text});
+      if (DOODLES3[s.type]) return DOODLES3[s.type]({size, c, local, prog, text: s.text}); // nét trắng theo chủ đề (bộ 3)
       const txt = s.text ?? '';
       if ((s.style ?? 'hand') === 'script') { // chữ ký viết tay nghiêng + nét gạch đuôi tự vẽ (như "Yummy!")
         const n = Array.from(txt).length;

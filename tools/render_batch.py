@@ -89,6 +89,9 @@ def expand_stickers(items):
             out.append(it); continue
         if presets is None:
             presets = json.load(open(PRESETS_FILE, encoding="utf-8"))
+            tu = os.path.join(ROOT, "tools", "presets_tutao.json")   # combo tự tạo của người dùng
+            if os.path.isfile(tu):
+                presets.update(json.load(open(tu, encoding="utf-8")))
         pr = presets.get(it["preset"])
         if not pr:
             sys.exit(f"Combo không có: {it['preset']} (có: {', '.join(k for k in presets if not k.startswith('_'))})")

@@ -8,12 +8,14 @@ import {DOODLE_LIST} from './Doodles';
 import {DOODLE2_PAGES} from './Doodles2';
 import {CUSTOM, CUSTOM_TEXT, CUSTOM_LABEL} from './Custom';
 import {Label} from './Label';
+import {DOODLE3_GROUPS} from './Doodles3';
 
 // Bảng mẫu cho agent và người dùng chọn (dựng bằng tools/make_catalog.sh):
 //  page 1 catalog_stickers.png  sticker cơ bản      page 2 catalog_chu.png       kiểu chữ mốc giờ
 //  page 3 catalog_chude.png     sticker theo chủ đề  page 4 catalog_chu_sticker.png kiểu chữ sticker
 //  page 5 catalog_combo.png     combo dựng sẵn (tools/presets.json)
 //  page 6 catalog_netve.png     nét trắng vẽ tay kiểu "Yummy!" + chữ ký script
+//  page 11–14 catalog_net_*.png  nét trắng theo chủ đề (Doodles3.tsx)
 //  page 10 catalog_tutao.png   thư viện tự tạo (Custom.tsx)
 //  page 7 catalog_netve2.png    nét trắng mở rộng: ăn uống + cảm xúc   page 8 catalog_netve3.png  thú ló + em bé & trang trí
 const BASIC: Partial<Sticker>[] = [
@@ -41,7 +43,7 @@ export const Catalog: React.FC<{page?: number; seconds?: number; presets?: Prese
       alignItems: 'center', justifyContent: 'center'}}>
       <div style={{height: h - 34, display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
         <Doodle s={s} t={t} local={24} prog={1} /></div>
-      <div style={nameCss}>{name}</div>
+      <div style={{...nameCss, fontSize: name.length > 15 ? 14 : name.length > 12 ? 16 : 18, whiteSpace: 'nowrap'}}>{name}</div>
     </div>);
 
   if (page === 2) {
@@ -87,6 +89,18 @@ export const Catalog: React.FC<{page?: number; seconds?: number; presets?: Prese
         {cell({type: 'text', style: 'script', text: 'Yummy!', size: 56, x: 0, y: 0} as Sticker, 'text · style "script"', 360, 200, 90, 0, 5 * ch + 20)}
         {cell({type: 'text', style: 'script', text: 'ngon quá nè', size: 48, x: 0, y: 0} as Sticker, 'text · style "script"', 360, 200, 91, 360, 5 * ch + 20)}
       </AbsoluteFill>);
+  }
+  if (page >= 11 && page <= 14) { // catalog_net_*.png: nét trắng theo chủ đề (Doodles3.tsx)
+    const groups = DOODLE3_GROUPS.filter((g) => g[0] === page), cols = 5, cw = 720 / cols, ch = 150;
+    let y = 8; const out: React.ReactNode[] = [];
+    groups.forEach(([, title, list], gi) => {
+      out.push(<div key={'h' + gi} style={{position: 'absolute', left: 16, top: y, ...nameCss, fontSize: 26}}>{title}</div>);
+      y += 40;
+      list.forEach((ty, i) => out.push(cell({type: ty, x: 0, y: 0, size: 84} as Sticker, ty, cw, ch, gi * 100 + i,
+        (i % cols) * cw, y + Math.floor(i / cols) * ch)));
+      y += Math.ceil(list.length / cols) * ch + 14;
+    });
+    return <AbsoluteFill style={{background: bg}}>{out}</AbsoluteFill>;
   }
   if (page === 10) { // catalog_tutao.png: thư viện tự tạo (Custom.tsx)
     const st = Object.keys(CUSTOM), tx = Object.keys(CUSTOM_TEXT), lb = Object.keys(CUSTOM_LABEL);

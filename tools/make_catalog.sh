@@ -8,6 +8,7 @@
 #    tools/remotion/catalog_netve2.png    (nét trắng mở rộng: ăn uống + cảm xúc)
 #    tools/remotion/catalog_netve3.png    (nét trắng mở rộng: thú ló + em bé & trang trí)
 #    tools/remotion/catalog_combo2.png    (combo nét trắng mở rộng *_netve)
+#    tools/remotion/catalog_net_*.png     (nét trắng theo chủ đề: đi chơi, em bé, nhà, thời tiết, lễ tết, mua sắm, học, thể thao)
 #    tools/remotion/catalog_tutao.png     (thư viện tự tạo: tools/remotion/src/Custom.tsx)
 set -euo pipefail
 C="$(cd "$(dirname "$0")/.." && pwd)"
@@ -17,8 +18,10 @@ import json, sys
 c, out = sys.argv[1:3]
 theme = json.load(open(f"{c}/style.json", encoding="utf-8")).get("theme", {})
 pre = json.load(open(f"{c}/tools/presets.json", encoding="utf-8"))
+import os
+if os.path.isfile(f"{c}/tools/presets_tutao.json"): pre.update(json.load(open(f"{c}/tools/presets_tutao.json", encoding="utf-8")))
 presets = [{"name": k, "desc": v.get("desc", ""), "items": v["items"]} for k, v in pre.items() if not k.startswith("_")]
-pages = [(1, "catalog_stickers"), (2, "catalog_chu"), (3, "catalog_chude"), (4, "catalog_chu_sticker"), (5, "catalog_combo"), (6, "catalog_netve"), (7, "catalog_netve2"), (8, "catalog_netve3"), (9, "catalog_combo2"), (10, "catalog_tutao")]
+pages = [(1, "catalog_stickers"), (2, "catalog_chu"), (3, "catalog_chude"), (4, "catalog_chu_sticker"), (5, "catalog_combo"), (6, "catalog_netve"), (7, "catalog_netve2"), (8, "catalog_netve3"), (9, "catalog_combo2"), (10, "catalog_tutao"), (11, "catalog_net_dichoi_embe"), (12, "catalog_net_nha_thoitiet"), (13, "catalog_net_le_muasam"), (14, "catalog_net_hoc_thethao")]
 jobs = [{"comp": "Catalog", "props": {"page": p, "seconds": 2, "theme": theme, **({"presets": presets[:33]} if p == 5 else {"presets": presets[33:]} if p == 9 else {})},
          "out": f"{out}/{n}.png", "still": True, "frame": 0} for p, n in pages]
 json.dump(jobs, open(f"{out}/jobs.json", "w", encoding="utf-8"), ensure_ascii=False)
