@@ -5,7 +5,7 @@ title Tai video mau + nhac tu TikTok
 cd /d "%~dp0"
 echo ===============================================
 echo   TAI VIDEO MAU + NHAC TU MOT KENH TIKTOK
-echo   Video -> thu muc template, nhac -> thu muc mp3
+echo   Video luu vao thu muc template, nhac luu vao thu muc mp3
 echo ===============================================
 echo.
 set "PY="
