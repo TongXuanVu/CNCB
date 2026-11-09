@@ -13,8 +13,7 @@ Cách nhanh (Windows, không cần git): đặt `CaiDat_CNCB.bat` vào nơi mu�
 2. Mỗi video cần: clip vào `Video/clip/`, video mẫu vào `Video/template/`, nhạc vào `Video/mp3/`.
    Chưa có mẫu/nhạc thì nhấn đúp `Video/Tai_TikTok.bat` (Windows, cần Python) để tải bài mới nhất của một kênh TikTok.
    Nội dung các thư mục này không có trong repo (riêng tư / có bản quyền).
-3. Mở chat trong app Claude trên máy tính, cho Claude quyền thư mục đó, rồi nhờ Claude chạy:
-   `bash tools/install.sh` (tải ffmpeg 8.1, ffmpeg-skill, cài Remotion; chạy lại nếu bị ngắt), sau đó `source tools/setup.sh`.
+3. Mở chat trong app Claude trên máy tính, nhắn: "Đọc file <thư mục>\CAI_DAT_CLAUDE.md và làm theo" (cài ffmpeg, Remotion, tạo lối tắt /editvideocncb).
 
 ## Cấu trúc
 | Đường dẫn | Nội dung |

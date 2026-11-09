@@ -13,15 +13,13 @@ từng cảnh, sticker, nhạc nền cắt theo nhịp, hiệu ứng âm thanh v
    vào nơi muốn cài, ví dụ ổ `E:\`, rồi nhấn đúp. File tự tải bản mới nhất và tạo thư mục `ChuyệnNhàChàBông` NGAY CẠNH
    file .bat (đặt ở `E:\` -> `E:\ChuyệnNhàChàBông`). Windows có thể hiện "Windows protected your PC": bấm
    **More info -> Run anyway**.
-   Sau đó mở chat trong app Claude, nhắn: *"Kết nối thư mục E:\ChuyệnNhàChàBông, chạy `bash tools/install.sh` tới khi
-   xong rồi `source tools/setup.sh`"* (cài ffmpeg + Remotion, ~10–15 phút, chỉ 1 lần).
+   Sau đó mở **chat mới trong app Claude trên máy tính** (không dùng bản web), nhắn:
+   *"Đọc file E:\ChuyệnNhàChàBông\CAI_DAT_CLAUDE.md và làm theo"* (đổi đường dẫn nếu cài chỗ khác).
+   App hỏi quyền máy tính/thư mục thì bấm **Cho phép**. Claude tự cài ffmpeg + Remotion (~10–15 phút, chạy vài lượt)
+   và tạo lối tắt `/editvideocncb` — bấm lưu trên thẻ hiện ra. Chỉ làm 1 lần.
    **Cập nhật bản mới:** nhấn đúp `CaiDat_CNCB.bat` NẰM TRONG thư mục `ChuyệnNhàChàBông` (cập nhật tại chỗ). Chỉ công cụ được thay;
    clip, mẫu, nhạc, video đã làm, `style.json` và thư viện sticker/kiểu chữ tự tạo được giữ nguyên.
 3. **Trong Claude, chọn model Opus hoặc Sonnet.** Không dùng Haiku: dễ ghép sai cảnh, bỏ sót bước.
-4. **Tạo lối tắt `/editvideocncb`** (không bắt buộc, cho tiện):
-   mở chat mới trong app Claude, gửi câu: *"Tạo skill tên editvideocncb từ nội dung file
-   E:\ChuyệnNhàChàBông\tools\skill\SKILL.md"* rồi bấm lưu trên thẻ hiện ra.
-   Nếu không tạo skill, mỗi lần dùng chỉ cần dán **Prompt khởi động** ở mục 5.
 
 ---
 
