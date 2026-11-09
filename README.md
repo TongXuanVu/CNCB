@@ -8,6 +8,7 @@ chữ mốc giờ theo cảnh, sticker, nhạc cắt theo nhịp, hiệu ứng �
 - Lối tắt `/editvideocncb`: nhờ Claude "tạo skill từ tools/skill/SKILL.md"
 
 ## Cài đặt lần đầu
+Cách nhanh (Windows, không cần git): tải và nhấn đúp `CaiDat_CNCB.bat` (mã nguồn dễ đọc: `tools/caidat_cncb.ps1`). Hoặc làm tay:
 1. Tải repo về máy, đặt thư mục tên **ChuyệnNhàChàBông** (giữ nguyên tên có dấu), ví dụ `E:\ChuyệnNhàChàBông`.
 2. Mỗi video cần: clip vào `Video/clip/`, video mẫu vào `Video/template/`, nhạc vào `Video/mp3/`.
    Chưa có mẫu/nhạc thì nhấn đúp `Video/Tai_TikTok.bat` (Windows, cần Python) để tải bài mới nhất của một kênh TikTok.
