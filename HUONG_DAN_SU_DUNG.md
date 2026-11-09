@@ -9,12 +9,13 @@ từng cảnh, sticker, nhạc nền cắt theo nhịp, hiệu ứng âm thanh v
 
 1. **Ứng dụng Claude trên máy tính** (Windows hoặc Mac), đăng nhập tài khoản Claude có gói trả phí.
    Tải tại claude.ai/download.
-2. **Cài bộ công cụ:** nhấn đúp file **`CaiDat_CNCB.bat`** (được gửi kèm, hoặc tải ở
-   https://github.com/TongXuanVu/CNCB). Cửa sổ hỏi ổ đĩa muốn cài (Enter = ổ E), tự tải bản mới nhất và tạo thư mục
-   `ChuyệnNhàChàBông`. Windows có thể hiện "Windows protected your PC": bấm **More info -> Run anyway**.
+2. **Cài bộ công cụ:** đặt file **`CaiDat_CNCB.bat`** (được gửi kèm, hoặc tải ở https://github.com/TongXuanVu/CNCB)
+   vào nơi muốn cài, ví dụ ổ `E:\`, rồi nhấn đúp. File tự tải bản mới nhất và tạo thư mục `ChuyệnNhàChàBông` NGAY CẠNH
+   file .bat (đặt ở `E:\` -> `E:\ChuyệnNhàChàBông`). Windows có thể hiện "Windows protected your PC": bấm
+   **More info -> Run anyway**.
    Sau đó mở chat trong app Claude, nhắn: *"Kết nối thư mục E:\ChuyệnNhàChàBông, chạy `bash tools/install.sh` tới khi
    xong rồi `source tools/setup.sh`"* (cài ffmpeg + Remotion, ~10–15 phút, chỉ 1 lần).
-   **Cập nhật bản mới:** nhấn đúp lại `CaiDat_CNCB.bat` (trong thư mục `ChuyệnNhàChàBông` cũng có). Chỉ công cụ được thay;
+   **Cập nhật bản mới:** nhấn đúp `CaiDat_CNCB.bat` NẰM TRONG thư mục `ChuyệnNhàChàBông` (cập nhật tại chỗ). Chỉ công cụ được thay;
    clip, mẫu, nhạc, video đã làm, `style.json` và thư viện sticker/kiểu chữ tự tạo được giữ nguyên.
 3. **Trong Claude, chọn model Opus hoặc Sonnet.** Không dùng Haiku: dễ ghép sai cảnh, bỏ sót bước.
 4. **Tạo lối tắt `/editvideocncb`** (không bắt buộc, cho tiện):
