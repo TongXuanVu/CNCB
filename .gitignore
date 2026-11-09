@@ -1,0 +1,27 @@
+# Clip, video đã dựng, file tạm
+Video/*
+!Video/.gitkeep
+batches/*
+!batches/.gitkeep
+_to_delete/
+_agent_dev/
+_remotion_cache/
+**/work/
+__pycache__/
+*.part*
+
+# File nặng / tải lại được bằng tools/install.sh
+tools/vendor/
+tools/remotion/node_modules/
+tools/remotion/node_modules.tgz
+
+# Nhạc và video mẫu có bản quyền của người khác: tự đặt vào máy, không đưa lên repo
+assets/music/*
+!assets/music/.gitkeep
+assets/template.mp4
+assets/ref/
+*.beats*.json
+
+# Thư mục bản sao repo tạo trước đó (không cần nữa) và cache
+_github_CNCB/
+.cache/
