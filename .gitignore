@@ -1,6 +1,17 @@
 # Clip, video đã dựng, file tạm
 Video/*
 !Video/.gitkeep
+!Video/tai_tiktok.py
+# 3 thư mục con: giữ thư mục trống, không đưa nội dung (clip riêng tư, nhạc/video tải về có bản quyền)
+!Video/clip/
+Video/clip/*
+!Video/clip/.gitkeep
+!Video/mp3/
+Video/mp3/*
+!Video/mp3/.gitkeep
+!Video/template/
+Video/template/*
+!Video/template/.gitkeep
 batches/*
 !batches/.gitkeep
 _to_delete/
