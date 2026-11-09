@@ -7,7 +7,7 @@
 #    tools/remotion/catalog_netve.png     (nét trắng vẽ tay kiểu "Yummy!" + chữ ký script)
 #    tools/remotion/catalog_netve2.png    (nét trắng mở rộng: ăn uống + cảm xúc)
 #    tools/remotion/catalog_netve3.png    (nét trắng mở rộng: thú ló + em bé & trang trí)
-#    tools/remotion/catalog_combo2.png    (combo nét trắng mở rộng *_netve, thêm 08/11)
+#    tools/remotion/catalog_combo2.png    (combo nét trắng mở rộng *_netve)
 set -euo pipefail
 C="$(cd "$(dirname "$0")/.." && pwd)"
 TMPC="$HOME/catalog_tmp"; mkdir -p "$TMPC"; rm -f "$TMPC"/*.png

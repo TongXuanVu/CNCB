@@ -143,7 +143,7 @@ def _write_wav(path, x):
         w.writeframes((np.clip(x, -1, 1) * 32767).astype(np.int16).tobytes())
 
 def _read_wav(path):
-    # đọc mọi định dạng qua ffmpeg (Vũ có thể thay bằng file mp3/wav của mình)
+    # đọc mọi định dạng qua ffmpeg (người dùng có thể thay bằng file mp3/wav của mình)
     return _decode(path, SR)
 
 def ensure_sfx():
@@ -153,7 +153,7 @@ def ensure_sfx():
             _write_wav(os.path.join(SFX_DIR, nm + ".wav"), _synth(nm))
 
 def sfx_file(nm):
-    for e in (".mp3", ".wav"):          # file mp3 của Vũ được ưu tiên hơn file tự tạo
+    for e in (".mp3", ".wav"):          # file mp3 người dùng đặt vào được ưu tiên hơn file tự tạo
         p = os.path.join(SFX_DIR, nm + e)
         if os.path.isfile(p):
             return p

@@ -1,6 +1,6 @@
 import React from 'react';
 
-// Bộ nét vẽ tay TRẮNG kiểu "Yummy!" (giống video tham khảo của Vũ): nét mảnh, rung nhẹ như vẽ tay (line boil).
+// Bộ nét vẽ tay TRẮNG kiểu "Yummy!" (giống video tham khảo): nét mảnh, rung nhẹ như vẽ tay (line boil).
 // Mỗi hàm nhận (size, c = màu nét, local = khung hình kể từ lúc hiện, prog = 0..1 tiến độ vẽ).
 type P = {size: number; c: string; local: number; prog: number};
 const PINK = '#FF9EB5';

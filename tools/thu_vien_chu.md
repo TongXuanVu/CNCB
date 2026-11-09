@@ -1,6 +1,6 @@
 # Thư viện chữ theo chủ đề — Chuyện nhà Chà Bông
 
-Dùng khi lên kế hoạch (Bước 1). Chữ do Vũ viết luôn ưu tiên; câu lấy từ đây phải ghi "(đề xuất)".
+Dùng khi lên kế hoạch (Bước 1). Chữ do người dùng viết luôn ưu tiên; câu lấy từ đây phải ghi "(đề xuất)".
 Giọng kênh: nhà có bé nhỏ, thân mật, vui, ngắn gọn (dòng hoạt động ≤ 28 ký tự, chữ phản ứng ≤ 14 ký tự).
 Cột "Combo" là tên trong tools/presets.json (xem catalog_combo.png); cột "Sticker" là type lẻ.
 
@@ -39,7 +39,7 @@ Cột "Combo" là tên trong tools/presets.json (xem catalog_combo.png); cột "
 | Buổi sáng / ngoài trời | sun_line, flower_line | chào buổi sáng | — |
 | Tạm biệt | wave_hand, hearts_line | Byee~ · hẹn gặp lại | byee_netve |
 
-## Bộ nét trắng mở rộng (catalog_netve2.png, catalog_netve3.png — 08/11, khách thích kiểu nét trắng)
+## Bộ nét trắng mở rộng (catalog_netve2.png, catalog_netve3.png — ưu tiên kiểu nét trắng)
 | Khoảnh khắc | Nét trắng | Chữ script gợi ý | Combo |
 |---|---|---|---|
 | Đồ ăn nóng, nấu nướng | steam_line, bowl_line, chopsticks_line | măm măm · thơm quá | an_ngon_netve |

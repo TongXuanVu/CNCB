@@ -1,24 +1,21 @@
 # Agent edit video — Chuyện nhà Chà Bông
 
-> Trong file này "Vũ" = người đang dùng agent (Vũ hoặc khách nhận bàn giao). Quy tắc áp dụng như nhau.
-
 ## QUY TẮC CỨNG
-1. KHÔNG dựng video thật (render_batch.py không có --preview) khi Vũ chưa nói rõ "ok dựng" cho đúng mẻ đó.
+1. KHÔNG dựng video thật (render_batch.py không có --preview) khi người dùng chưa nói rõ "ok dựng" cho đúng mẻ đó.
 2. Không xóa file nào. Chỉ đụng vào Video/ và đúng thư mục mẻ đang làm.
-3. Không sửa assets/ và style.json trừ khi Vũ yêu cầu.
+3. Không sửa assets/ và style.json trừ khi người dùng yêu cầu.
 4. Lỗi thì dừng, báo nguyên văn lỗi, không tự thử cách khác lên video.
-5. Phong cách lấy theo template.* của từng mẻ (Vũ bỏ vào Video/template; mẫu cũ assets/template.mp4 = video "Hành trình
-   vỗ béo" kênh Thị Bún nè, 71 giây, dùng bài assets/music/Download.mp3). Đặc điểm: cảnh ngắn 1–3 nhịp (~0,7–2 giây), nhạc xuyên suốt, chữ nhỏ trắng
-   kèm emoji ở giữa/dưới, tiêu đề series ở trên, sticker meme ở cảnh cảm xúc. Trước khi lên kế hoạch, trích vài khung hình
-   của batches/<mẻ>/template.* để đối chiếu. Ảnh bìa Vũ tự làm trong TikTok lúc đăng, agent không làm.
+5. Phong cách lấy theo template.* của từng mẻ (người dùng bỏ vào Video/template). Kiểu thường gặp: cảnh ngắn 1–3 nhịp
+   (~0,7–2 giây), nhạc xuyên suốt, chữ nhỏ trắng kèm emoji ở giữa/dưới, tiêu đề series ở trên, sticker ở cảnh cảm xúc. Trước khi lên kế hoạch, trích vài khung hình
+   của batches/<mẻ>/template.* để đối chiếu. Ảnh bìa người dùng tự làm trong TikTok lúc đăng, agent không làm.
 
 ## Vị trí thư mục
-- Trên máy Vũ: E:\ChuyệnNhàChàBông (từ 09/11; trước đó D:). Trong máy ảo, mỗi lệnh bắt đầu bằng:
+- Trên máy: <ổ>:\ChuyệnNhàChàBông (tên thư mục phải đúng như vậy). Trong máy ảo, mỗi lệnh bắt đầu bằng:
   cd "$(for d in "$HOME"/mnt/*ChuyệnNhàChàBông; do [ -f "$d/AGENT.md" ] && echo "$d" && break; done)" && source tools/setup.sh && ...
   (tên mount có thể kèm tiền tố ổ như "E:--", nên không gõ cứng đường dẫn).
 
 ## Thư mục
-- Video/clip/    Vũ bỏ clip mới vào đây
+- Video/clip/    người dùng bỏ clip mới vào đây
 - Video/template/  kho video mẫu (nhiều file). Mỗi mẻ chỉ CHUYỂN template được chọn; file âm thanh/.py trong đây bị bỏ qua
 - Video/mp3/     kho nhạc — mẻ chỉ CHÉP mp3 được chọn, bản gốc giữ lại. Nhiều cặp template+mp3 = nhiều video, xem "Mẻ nhiều video"
 - assets/        template.mp4 (mẫu), end.mp4 (end card), fonts/, nhạc nếu có
@@ -37,32 +34,32 @@
 - Mỗi lệnh tối đa ~170 giây; script lưu tiến độ, cứ chạy lại tới khi in DONE. Remotion khoảng 0,15 giây/khung hình
   cho mỗi lớp, video 55 giây có chữ mọi cảnh mất vài lượt chạy.
 
-## Quy trình mỗi mẻ (4 bước, mỗi bước chờ Vũ duyệt)
-### Bước 1 — Vũ nhắn "làm mẻ mới" + nội dung/mô tả
+## Quy trình mỗi mẻ (4 bước, mỗi bước chờ người dùng duyệt)
+### Bước 1 — người dùng nhắn "làm mẻ mới" + nội dung/mô tả
 1. Lưu mô tả vào file tạm, chạy `bash tools/new_batch.sh [-t <template>]... [-m <mp3>]... < file` -> đường dẫn mẻ.
-   (sửa 09/11) Clip: CHUYỂN HẾT Video/clip/* -> clips/1,2,3... (theo tên file). Template: chỉ CHUYỂN file được chọn
+   Clip: CHUYỂN HẾT Video/clip/* -> clips/1,2,3... (theo tên file). Template: chỉ CHUYỂN file được chọn
    bằng -t -> template.*, các template khác để nguyên. Mp3: chỉ CHÉP file chọn bằng -m -> mp3.* (gốc giữ trong Video/mp3).
    Không ghi -t/-m: thư mục chỉ có 1 file thì tự lấy; nhiều file thì script dừng (mã 5) và in danh sách
-   -> đưa danh sách cho Vũ, Vũ chọn template + mp3 nào. KHÔNG tự chọn.
-   - Video/clip trống (mã 1): báo Vũ.
-   - Video/template hoặc Video/mp3 trống (mã 3): báo Vũ, KHÔNG tự lấy file trong assets/.
-     Gợi ý Vũ: tự bỏ video mẫu vào Video/template và nhạc vào Video/mp3; chưa có thì NHẤN ĐÚP Video/Tai_TikTok.bat TRÊN WINDOWS
+   -> đưa danh sách cho người dùng, người dùng chọn template + mp3 nào. KHÔNG tự chọn.
+   - Video/clip trống (mã 1): báo người dùng.
+   - Video/template hoặc Video/mp3 trống (mã 3): báo người dùng, KHÔNG tự lấy file trong assets/.
+     Gợi ý người dùng: tự bỏ video mẫu vào Video/template và nhạc vào Video/mp3; chưa có thì NHẤN ĐÚP Video/Tai_TikTok.bat TRÊN WINDOWS
      (cửa sổ hỏi link kênh TikTok + số bài; thiếu Python thì tự mở trang tải). Agent KHÔNG tự chạy
      tai_tiktok.py trong máy ảo (mạng máy ảo không vào được TikTok).
-   - Tên file chọn không có (mã 5): báo Vũ.
+   - Tên file chọn không có (mã 5): báo người dùng.
    - Chọn nhiều template/mp3: tạo mẻ NHIỀU VIDEO (v1, v2...) ghép theo thứ tự đã chọn, xem mục "Mẻ nhiều video".
-   - Số template và mp3 lệch nhau mà không bên nào là 1 (mã 4): đưa 2 danh sách cho Vũ, chờ Vũ sửa.
-   Trong kế hoạch gọi clip theo số (1, 2, 3...) để Vũ đối chiếu; tên gốc xem ten_goc.txt.
+   - Số template và mp3 lệch nhau mà không bên nào là 1 (mã 4): đưa 2 danh sách cho người dùng, chờ người dùng sửa.
+   Trong kế hoạch gọi clip theo số (1, 2, 3...) để người dùng đối chiếu; tên gốc xem ten_goc.txt.
 2. `bash tools/preview_batch.sh batches/<mẻ>` (chỉ đọc clip). Xem ảnh preview/ để biết clip nào là cảnh gì.
 3. Viết ke-hoach.md: bảng thứ tự | clip | đoạn cắt (2–4 giây/cảnh) | chữ theo cảnh | hiệu ứng | chuyển cảnh,
-   cùng tên kênh + dòng phụ mở đầu. Chữ lấy từ nội dung Vũ viết; chỗ nào agent tự đề xuất thì ghi rõ "(đề xuất)".
+   cùng tên kênh + dòng phụ mở đầu. Chữ lấy từ nội dung người dùng viết; chỗ nào agent tự đề xuất thì ghi rõ "(đề xuất)".
    Trước khi chọn chữ/sticker: đọc tools/thu_vien_chu.md + xem các ảnh catalog_*.png (mục "Bộ chữ & sticker").
-4. Gửi Vũ duyệt. DỪNG.
-### Bước 2 — Vũ duyệt / sửa nội dung
+4. Gửi người dùng duyệt. DỪNG.
+### Bước 2 — người dùng duyệt / sửa nội dung
 1. Viết plan.json theo bản đã duyệt.
-2. `timeout 170 python3 tools/render_batch.py batches/<mẻ> --preview` -> gửi Vũ ảnh preview/chu_*.jpg để xem chữ.
-### Bước 3 — Nhạc + hiệu ứng âm thanh (khách yêu cầu 08/11: video PHẢI có nhạc, cắt theo nhịp, có SFX)
-- Nhạc của mẻ là batches/<mẻ>/mp3.* (Vũ bỏ vào Video/mp3). assets/music/Download.mp3 (92,8 BPM) chỉ là bài cũ.
+2. `timeout 170 python3 tools/render_batch.py batches/<mẻ> --preview` -> gửi người dùng ảnh preview/chu_*.jpg để xem chữ.
+### Bước 3 — Nhạc + hiệu ứng âm thanh (video PHẢI có nhạc, cắt theo nhịp, có SFX)
+- Nhạc của mẻ là batches/<mẻ>/mp3.* (người dùng bỏ vào Video/mp3).
 - plan.json: "music": "batches/<mẻ>/mp3.mp3" (đường dẫn tính từ thư mục gốc), "beat_sync": true (mặc định) -> script tự dò nhịp
   (tools/audio_tools.py, cache <bài>.beats3.json) và dời MỖI điểm cắt về nhịp gần nhất (chuyển cảnh xfade: tâm rơi đúng nhịp).
   "music_start": giây bắt đầu trong bài (mặc định = nhịp mạnh đầu tiên). Xem nhịp: python3 tools/audio_tools.py beats <bài>
@@ -74,26 +71,26 @@
   chữ / caption, "boing" sticker hình, "pop" sticker chữ, "ting" sparkles/stars, "whoosh" chuyển cảnh xfade.
   Tắt 1 cảnh: segment "sfx": false. Thêm tay: "sfx_extra": [{"t": 1.2, "sound": "ting", "vol": 0.5}]
   (sound: type | ting | pop | tick | boing | whoosh). Âm lượng chung: "sfx_volume".
-- Tiếng SFX nằm ở assets/sfx/*.wav (tự tổng hợp, không bản quyền). Vũ muốn thay thì bỏ file cùng tên đuôi .mp3 vào đó
+- Tiếng SFX nằm ở assets/sfx/*.wav (tự tổng hợp, không bản quyền). người dùng muốn thay thì bỏ file cùng tên đuôi .mp3 vào đó
   (mp3 được ưu tiên). Tạo lại bộ tự tổng hợp: python3 tools/audio_tools.py sfx
-- Không có nhạc thì "music": null (chỉ khi Vũ yêu cầu).
-### Bước 4 — Vũ nói "ok dựng"
+- Không có nhạc thì "music": null (chỉ khi người dùng yêu cầu).
+### Bước 4 — người dùng nói "ok dựng"
 1. Chạy lặp `timeout 170 python3 tools/render_batch.py batches/<mẻ>` tới khi in DONE.
 2. Kiểm tra: `python3 tools/vendor/ffmpeg-skill/scripts/check.py --platform tiktok <file>` + trích vài khung hình xem.
-3. Báo Vũ: tên file, độ dài.
+3. Báo người dùng: tên file, độ dài.
 
-## Kiểu mặc định (theo video "Sáng cuối tuần" của Vũ, 07/11/2026)
+## Kiểu mặc định
 - Mốc giờ dùng "labels": giờ TO + dòng hoạt động bên dưới (38px, đánh máy từng chữ); một mốc giờ kéo dài qua nhiều cảnh
   liền nhau, chỉ dòng hoạt động đổi. Đặt "pos" trên/giữa/dưới sao cho KHÔNG che mặt (xem ảnh preview của clip để chọn).
 - Câu dài thì tách thành 2–3 dòng ngắn qua các cảnh liền nhau, giữ nguyên giờ.
-- Chuyển cảnh mặc định là cắt thẳng; chỉ thêm transition khi Vũ muốn.
-- "caption" (chữ kem kiểu cũ) vẫn dùng được khi Vũ yêu cầu.
+- Chuyển cảnh mặc định là cắt thẳng; chỉ thêm transition khi người dùng muốn.
+- "caption" (chữ kem kiểu cũ) vẫn dùng được khi người dùng yêu cầu.
 
 ## Bộ chữ & sticker (XEM ẢNH MẪU + THƯ VIỆN CHỮ TRƯỚC KHI LÊN KẾ HOẠCH)
 - Ảnh mẫu trong tools/remotion/: catalog_stickers.png (sticker cơ bản), catalog_chude.png (sticker theo chủ đề),
   catalog_combo.png (combo dựng sẵn), catalog_chu.png (kiểu chữ mốc giờ), catalog_chu_sticker.png (kiểu chữ sticker),
   catalog_netve.png (nét trắng mảnh vẽ tay kiểu "Yummy!" + chữ ký script),
-  catalog_netve2.png + catalog_netve3.png + catalog_combo2.png (56 nét trắng + 11 combo mở rộng 08/11 — KHÁCH THÍCH KIỂU NÉT TRẮNG, ưu tiên dùng).
+  catalog_netve2.png + catalog_netve3.png + catalog_combo2.png (56 nét trắng + 11 combo mở rộng — ưu tiên kiểu nét trắng).
 - tools/thu_vien_chu.md: câu chữ mẫu + combo + sticker + kiểu chữ hợp cho từng chủ đề (ăn uống, đi chơi, lễ tết...).
 - Sửa src/*.tsx, tools/presets.json hoặc style.json xong thì chạy `timeout 170 bash tools/make_catalog.sh` để cập nhật ảnh mẫu.
 
@@ -142,7 +139,7 @@
   giat_minh, chong_mat, ngai_ngung, y_tuong, byee_netve, be_khoc_netve, an_ngon_netve, vo_beo_netve,
   tra_sua_netve, di_choi_netve, check_in_netve, be_ngu_netve, yeu_qua_netve, em_be_netve, that_vong_netve, khen_netve, hoi_ba_netve. Combo rộng ~0,45 khung: đặt x
   khoảng 0.3–0.7; thu nhỏ bằng "scale": 0.8 nếu chật. Thêm combo mới: viết vào presets.json rồi chạy make_catalog.sh.
-- PHONG CÁCH NÉT TRẮNG (giống video tham khảo của Vũ): rải 3–4 nét trắng QUANH bé thay vì gom 1 chỗ — splash cạnh đầu,
+- PHONG CÁCH NÉT TRẮNG (giống video tham khảo của người dùng): rải 3–4 nét trắng QUANH bé thay vì gom 1 chỗ — splash cạnh đầu,
   burst_lines góc trên, thú *_peek cạnh tay/món ăn, chữ script "Yummy!" góc dưới (anim type). Không trộn với sticker màu
   trong cùng cảnh. text style "script" có nét gạch đuôi tự vẽ; size 56–70.
 - Ví dụ: ăn ngon -> yum (bounce) + text "Yummy!" outline (type); giá rẻ -> burst "200k" (drop) hoặc text tag;
@@ -180,25 +177,23 @@ prism (vệt cầu vồng) | frame (khung trắng nháy quanh màn hình, như v
 - caption (kiểu cũ), caption_delay, effects, "mute", "volume" vẫn dùng được.
 - transition (vào cảnh này): cut (mặc định) | zoomin | fadewhite | fade | hblur | dissolve | smoothleft | smoothup | radial | slideleft.
 - intro phủ lên cảnh đầu trong "seconds" giây; mốc giờ/caption cảnh đầu tự hiện sau intro.
-- Thư mục _agent_dev/test/ có plan.json thử mọi hiệu ứng mới (dựng thử: render_batch.py _agent_dev/test).
 
-## Ghi chú đã chốt (08/11/2026)
-- Góp ý của khách cho video "cuoi-tuan-200k": THIẾU NHẠC -> phải có nhạc, chuyển cảnh theo nhịp nhạc; chữ đã kịp đọc;
-  mở đầu cần hiệu ứng âm thanh, chữ xuất hiện cũng có hiệu ứng âm thanh; hiệu ứng hình ổn.
-- Âm lượng SFX Vũ đã duyệt: style.json "sfx_volume": 0.5 (tiếng gõ phím tên kênh 0.25 x 0.5). Không tự tăng.
-- Kiểu chữ: GIỮ kiểu hiện tại (giờ to + dòng hoạt động, sticker nét trắng). CHƯA đổi chữ theo template.mp4;
-  template.mp4 chỉ dùng để tham khảo nhịp cắt, nhạc, cách đặt sticker.
-- Nhạc: dùng mp3.* của mẻ, "beat_sync": true. (Từ 08/11 tối: mỗi mẻ có template + mp3 riêng.)
+## Mặc định đã chốt
+- Video luôn có nhạc, chuyển cảnh theo nhịp; mở đầu và mỗi lần chữ xuất hiện có hiệu ứng âm thanh.
+- Âm lượng SFX: style.json "sfx_volume": 0.5 (tiếng gõ phím tên kênh 0.25 x 0.5). Không tự tăng.
+- Kiểu chữ: giờ to + dòng hoạt động, sticker nét trắng. Template của mẻ dùng để tham khảo nhịp cắt, nhạc,
+  cách đặt sticker — không đổi kiểu chữ theo template khi người dùng chưa yêu cầu.
+- Nhạc: dùng mp3.* của mẻ, "beat_sync": true. Mỗi mẻ có template + mp3 riêng.
 
-## Mẻ nhiều video (Vũ bỏ nhiều template + mp3, chốt 08/11)
+## Mẻ nhiều video (người dùng bỏ nhiều template + mp3)
 - Ghép cặp theo THỨ TỰ chọn -t/-m (không chọn thì theo tên file, kiểu IMG_2 trước IMG_10): template thứ 1 + mp3 thứ 1 -> v1, ...
-  Một bên chỉ có 1 file thì dùng chung cho mọi v. Lệch số khác -> new_batch.sh báo (mã 4), hỏi Vũ.
+  Một bên chỉ có 1 file thì dùng chung cho mọi v. Lệch số khác -> new_batch.sh báo (mã 4), hỏi người dùng.
 - Cấu trúc: batches/<mẻ>/clips/ (CHUNG) + v1/, v2/... mỗi v có template.*, mp3.*, ke-hoach.md, plan.json, preview/, output/.
 - Preview clip chạy 1 lần cho cả mẻ: `bash tools/preview_batch.sh batches/<mẻ>`.
 - MỖI VIDEO NỘI DUNG RIÊNG: chữ, sticker, thứ tự/đoạn cắt viết riêng theo phong cách template của v đó (trích khung hình
   template của từng v để đối chiếu) và nhịp bài mp3 của v đó. Không chép nguyên kế hoạch v này sang v khác.
 - plan.json của v: clip ghi "../clips/1.mp4"; "music": "batches/<mẻ>/vN/mp3.mp3"; đặt "name" riêng cho từng v.
-- Gửi Vũ bảng kế hoạch của tất cả v (mỗi v 1 mục). VŨ CHỌN NHỮNG V CẦN DỰNG — chỉ dựng đúng các v Vũ nói "ok dựng".
+- Gửi người dùng bảng kế hoạch của tất cả v (mỗi v 1 mục). VŨ CHỌN NHỮNG V CẦN DỰNG — chỉ dựng đúng các v người dùng nói "ok dựng".
 - Xem trước chữ: `timeout 175 python3 tools/render_many.py batches/<mẻ> v1 v3 --preview`
 - Dựng: `timeout 175 python3 tools/render_many.py batches/<mẻ> v1 v3` — chạy lại tới khi in ALL DONE
   (in "CHƯA XONG" là hết lượt 165 giây, chạy lại để làm tiếp; v đã xong mà plan.json không đổi thì tự bỏ qua).
@@ -209,6 +204,4 @@ prism (vệt cầu vồng) | frame (khung trắng nháy quanh màn hình, như v
 - KHÔNG chạy new_batch.sh (Video/ có thể trống). Tạo thư mục mẻ mới: batches/<ngày>_NN-<tên>/, CHÉP (cp, không mv)
   clips/ + mota.txt + plan.json từ mẻ cũ sang, giữ nguyên mẻ cũ để so sánh.
 - Sửa plan.json theo góp ý: thêm "music", "beat_sync": true; rút cảnh dài còn ~2–3 nhịp; giữ chữ/sticker đã duyệt.
-- Viết ke-hoach.md mới, ghi rõ chỗ khác bản cũ, gửi Vũ duyệt rồi mới --preview / dựng như quy trình 4 bước.
-- Mẻ "cuoi-tuan-200k" bản đã gửi khách: batches/2026-11-07_01-old/ (có gop-y.txt). Các mẻ khác trong batches/ là bản
-  thử của đoạn chat khác: hỏi Vũ trước khi dùng.
+- Viết ke-hoach.md mới, ghi rõ chỗ khác bản cũ, gửi người dùng duyệt rồi mới --preview / dựng như quy trình 4 bước.

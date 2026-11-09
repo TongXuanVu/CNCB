@@ -7,7 +7,7 @@ import {THEMES} from './Pack';
 import {DOODLE_LIST} from './Doodles';
 import {DOODLE2_PAGES} from './Doodles2';
 
-// Bảng mẫu cho agent và Vũ chọn (dựng bằng tools/make_catalog.sh):
+// Bảng mẫu cho agent và người dùng chọn (dựng bằng tools/make_catalog.sh):
 //  page 1 catalog_stickers.png  sticker cơ bản      page 2 catalog_chu.png       kiểu chữ mốc giờ
 //  page 3 catalog_chude.png     sticker theo chủ đề  page 4 catalog_chu_sticker.png kiểu chữ sticker
 //  page 5 catalog_combo.png     combo dựng sẵn (tools/presets.json)
@@ -98,7 +98,7 @@ export const Catalog: React.FC<{page?: number; seconds?: number; presets?: Prese
           360, 150, 100 + i, (i % 2) * 360, top + Math.floor(i / 2) * 150))}
       </AbsoluteFill>);
   }
-  if (page === 5 || page === 9) { // 9 = catalog_combo2.png (combo thêm từ 08/11)
+  if (page === 5 || page === 9) { // 9 = catalog_combo2.png (combo mở rộng)
     const ps = p.presets ?? [];
     const cols = 4, cw = 720 / cols, ch = 1280 / Math.ceil(ps.length / cols), k = 0.42;
     return (

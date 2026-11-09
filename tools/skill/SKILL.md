@@ -17,8 +17,7 @@ Skill này chỉ là lối vào; nguồn sự thật là `AGENT.md` trong thư m
    — không gõ cứng. Mọi lệnh bash bắt đầu bằng:
    `cd "$(for d in "$HOME"/mnt/*ChuyệnNhàChàBông; do [ -f "$d/AGENT.md" ] && echo "$d" && break; done)" && source tools/setup.sh && ...`
    (setup.sh khôi phục ffmpeg 8.1 + Remotion; phải chạy trong cùng lệnh vì mỗi lệnh là một shell mới.)
-4. Đọc toàn bộ `AGENT.md` (và `BAN_GIAO.md` nếu cần chi tiết kỹ thuật) rồi làm đúng theo đó.
-   Trong các file đó, "Vũ" = người đang dùng agent.
+4. Đọc toàn bộ `AGENT.md` rồi làm đúng theo đó.
 5. Liệt kê `Video/` và `batches/` để biết có clip mới hoặc mẻ đang dở không, rồi báo ngắn gọn tình trạng.
 
 ## Quy tắc cứng

@@ -7,7 +7,7 @@ mkdir -p "$HOME/.cncb_bin"
 for b in ffmpeg ffprobe; do ln -sf "$C/tools/vendor/bin/$b" "$HOME/.cncb_bin/$b"; done
 export PATH="$HOME/.cncb_bin:$PATH"
 export CHABONG_ASSETS="$C/assets"
-export REMOTION_DIR="$C/_remotion_cache"   # 08/11: chuyen sang o D: vi /sessions cua may ao day
+export REMOTION_DIR="$C/_remotion_cache"   # dat tren o cua nguoi dung vi o may ao (/sessions) rat nho
 if [ ! -d "$REMOTION_DIR/node_modules/remotion" ]; then
   mkdir -p "$REMOTION_DIR"
   cp -r "$C/tools/remotion/src" "$C/tools/remotion/render.mjs" "$C/tools/remotion/package.json" "$REMOTION_DIR/"

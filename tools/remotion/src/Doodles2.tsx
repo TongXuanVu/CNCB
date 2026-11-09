@@ -1,7 +1,7 @@
 import React from 'react';
 import {ln, drawn, boil, Svg, drop, DROP, HEART, STAR, Paws, HappyFace, PINK} from './Doodles';
 
-// Bộ nét trắng vẽ tay MỞ RỘNG (08/11/2026 — khách thích kiểu nét trắng, làm thêm). Cùng quy ước với Doodles.tsx:
+// Bộ nét trắng vẽ tay MỞ RỘNG (kiểu nét trắng được ưu tiên). Cùng quy ước với Doodles.tsx:
 // (size, c = màu nét, local = khung hình kể từ lúc hiện, prog, text = chữ cho bubble_line/bubble_think).
 type P = {size: number; c: string; local: number; prog: number; text?: string};
 const YEL = '#FFE066', GREEN = '#A5D6A7', INK = '#5D4037', RED = '#FF6B81';

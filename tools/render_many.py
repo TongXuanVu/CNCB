@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Dựng NHIỀU video của 1 mẻ (mẻ có v1/, v2/... mỗi cái 1 plan.json riêng). Chỉ dựng những v Vũ đã duyệt.
+"""Dựng NHIỀU video của 1 mẻ (mẻ có v1/, v2/... mỗi cái 1 plan.json riêng). Chỉ dựng những v người dùng đã duyệt.
   timeout 175 python3 tools/render_many.py batches/<mẻ> v1 v3          dựng v1 và v3; chạy lại tới khi in ALL DONE
   timeout 175 python3 tools/render_many.py batches/<mẻ> v2 --preview   chỉ làm ảnh xem trước chữ cho v2
 Mỗi lần chạy dùng tối đa ~165 giây rồi dừng (render_batch.py lưu tiến độ, chạy lại là làm tiếp).
