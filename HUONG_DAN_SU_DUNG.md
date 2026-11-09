@@ -35,7 +35,7 @@ từng cảnh, sticker, nhạc nền cắt theo nhịp, hiệu ứng âm thanh v
 
 **Chưa có video mẫu / nhạc?** Nhấn đúp file **`Video\Tai_TikTok.bat`**:
 1. Cửa sổ đen hiện ra, hỏi link kênh TikTok (vd `https://www.tiktok.com/@ten.kenh`) -> dán vào, Enter.
-2. Nhập số bài muốn tải, Enter. Chờ tải xong, thư mục `template` tự mở ra.
+2. Nhập số bài muốn tải, Enter. Chờ tải xong (cửa sổ dừng ở dòng "Press any key").
    Video vào `Video\template\`, nhạc tách ra vào `Video\mp3\`, tên file theo ngày đăng.
 3. Máy chưa có Python: file sẽ báo và mở trang python.org. Tải bản mới nhất, khi cài **tick ô "Add python.exe to PATH"**,
    cài xong nhấn đúp lại `Tai_TikTok.bat`.

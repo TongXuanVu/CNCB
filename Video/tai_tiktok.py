@@ -158,7 +158,6 @@ def main():
         os.rmdir(TMP)
     except OSError:
         pass
-    print(f"\nXong: {nv} video trong template/, {na} file nhạc trong mp3/")
 
 if __name__ == "__main__":
     main()

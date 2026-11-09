@@ -27,9 +27,6 @@ if not defined PY (
 echo.
 if errorlevel 1 (
   echo [!] Co loi. Chup man hinh cua so nay gui cho nguoi ho tro.
-) else (
-  echo Xong. Mo thu muc template va mp3 de xem file vua tai.
-  start "" "%~dp0template"
 )
 echo.
 pause
